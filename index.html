@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Briz · New York, arranged for you.</title>
-<meta name="description" content="Briz — a licensed chauffeur fleet for the curated NYC evening. 24/7 · 1-866-666-6666 · three easy steps online. TLC, DOT, NLA, $4M insured.">
+<meta name="description" content="BRiZ — a licensed NYC chauffeur fleet booked through an AI concierge. 24/7 · talk or chat to reserve in two minutes. TLC, DOT, NLA, $4M insured.">
 <meta name="theme-color" content="#1E293B">
 <meta name="author" content="Briz">
 <meta name="keywords" content="NYC chauffeur, Broadway limo service, JFK airport car service, Hamptons car service, Manhattan limousine, Westchester chauffeur, wedding transportation NYC, corporate car service">
@@ -14,7 +14,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Briz · New York, arranged for you.">
-<meta property="og:description" content="A licensed chauffeur fleet for the curated NYC evening. 24/7 · 1-866-666-6666 · three easy steps online.">
+<meta property="og:description" content="A licensed NYC chauffeur fleet booked through an AI concierge. Talk or chat to reserve in two minutes.">
 <meta property="og:url" content="https://www.briz.com">
 <meta property="og:image" content="https://www.briz.com/hero-og.jpg">
 <meta property="og:image:width" content="1920">
@@ -25,7 +25,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Briz · New York, arranged for you.">
-<meta name="twitter:description" content="A licensed chauffeur fleet for the curated NYC evening. 1-866-666-6666.">
+<meta name="twitter:description" content="A licensed NYC chauffeur fleet booked through an AI concierge. Talk or chat to reserve in two minutes.">
 <meta name="twitter:image" content="https://www.briz.com/hero-og.jpg">
 
 <!-- Favicon — BLNY monogram, slate-800 -->
@@ -2648,6 +2648,209 @@ elevenlabs-convai {
   .footer-quote-band-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .footer-quote-band-signoff { font-size: 9.5px; }
 }
+
+/* =============================================================
+   ADDITIONS — Carmel pricing + AI-only contact + mobile app shell
+   ============================================================= */
+
+/* Inline-link button: a <button> that visually reads as a text link.
+   We use these everywhere the AI agent replaces a <a href="tel:..."> CTA. */
+.link-inline {
+  background: none; border: none; padding: 0; margin: 0; cursor: pointer;
+  font: inherit; color: var(--color-accent, #C9B79A);
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-thickness: 1px; text-decoration-color: rgba(201,183,154,0.5);
+  transition: color 160ms ease;
+}
+.link-inline:hover { color: #fff; text-decoration-color: #fff; }
+
+/* Fleet-card "From $X to JFK" overlay */
+.fleet-fromprice {
+  display: inline-block; margin: 8px 0 12px;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(201,183,154,0.12); color: var(--color-accent, #C9B79A);
+  font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  font-weight: 500;
+}
+.fleet-fromprice strong { color: #fff; font-weight: 600; }
+
+/* Reserve button restyle to look like the link it used to be */
+.fleet-link {
+  background: none; border: none; padding: 0; margin: 16px 0 0;
+  cursor: pointer; font: inherit;
+  color: var(--color-accent, #C9B79A); font-size: 14px;
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  display: inline-block; transition: transform 200ms ease, color 200ms ease;
+}
+.fleet-link:hover { color: #fff; transform: translateX(4px); }
+
+/* ───────────── Sample Fares section ───────────── */
+.fares {
+  padding: 96px 24px 72px; background: #0E1116;
+  color: #F2EDE4; position: relative;
+}
+.fares-head {
+  max-width: 780px; margin: 0 auto 48px; text-align: center;
+}
+.fares-head .section-headline { color: #F2EDE4; }
+.fares-head .iridescent-rule-thin { margin: 16px auto; }
+.fares-head .section-sub { color: rgba(242,237,228,0.7); }
+
+.fares-grid {
+  display: grid; gap: 24px; max-width: 1200px; margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.fares-loading, .fares-empty {
+  grid-column: 1 / -1; text-align: center;
+  color: rgba(242,237,228,0.5); padding: 48px;
+  font-size: 14px; letter-spacing: 0.06em;
+}
+
+.fares-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(201,183,154,0.18);
+  border-radius: 12px; padding: 28px 24px; transition: border-color 240ms ease, transform 240ms ease;
+}
+.fares-card:hover { border-color: rgba(201,183,154,0.45); transform: translateY(-2px); }
+
+.fares-card-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px; margin-bottom: 20px; padding-bottom: 16px;
+  border-bottom: 1px solid rgba(201,183,154,0.15);
+}
+.fares-route {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 22px; font-weight: 400; letter-spacing: -0.01em; margin: 0;
+}
+.fares-from {
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(242,237,228,0.55); white-space: nowrap;
+}
+.fares-from strong {
+  color: var(--color-accent, #C9B79A); font-size: 16px;
+  font-weight: 600; letter-spacing: 0;
+}
+.fares-classes {
+  list-style: none; margin: 0 0 24px; padding: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.fares-classes li {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 12px;
+  align-items: baseline; font-size: 14px;
+}
+.fares-class { color: #F2EDE4; }
+.fares-cap { color: rgba(242,237,228,0.5); font-size: 12px; }
+.fares-price { color: var(--color-accent, #C9B79A); font-weight: 600; min-width: 56px; text-align: right; }
+.fares-cta {
+  background: none; border: 1px solid rgba(201,183,154,0.4);
+  color: #F2EDE4; padding: 10px 16px; border-radius: 999px;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: all 200ms ease; width: 100%;
+  font-family: inherit;
+}
+.fares-cta:hover {
+  background: var(--color-accent, #C9B79A); border-color: var(--color-accent, #C9B79A);
+  color: #0E1116;
+}
+.fares-foot {
+  text-align: center; max-width: 640px; margin: 48px auto 0;
+  color: rgba(242,237,228,0.65); font-size: 14px;
+}
+
+/* nav-phone is now a button — keep the same visual */
+button.nav-phone {
+  background: none; border: 1px solid rgba(255,255,255,0.18);
+  cursor: pointer; font: inherit; color: inherit;
+}
+button.nav-mobile-phone {
+  background: none; border: none; cursor: pointer; font: inherit;
+  color: var(--color-accent, #C9B79A);
+}
+
+/* features-cta-phone, quote-band-phone, introduction-cta-ghost — they were
+   <a> elements; now buttons. Reset native button chrome so the existing
+   class-defined visuals carry over. */
+button.features-cta-phone,
+button.quote-band-phone,
+button.introduction-cta-ghost {
+  background: none; border: 0; cursor: pointer; font: inherit; padding: 0;
+}
+/* The original .btn-primary, .btn-ghost-light styling is already
+   button-friendly so they need no reset beyond removing default chrome. */
+button.btn-primary,
+button.btn-ghost-light {
+  font-family: inherit;
+}
+
+/* =============================================================
+   MOBILE CUSTOMER APP — overlays the marketing site on phones.
+   The marketing experience is a desktop affair; on mobile we want
+   a focused, app-like flow that funnels straight into the AI agent.
+   ============================================================= */
+.briz-mobile-app {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  /* Hide the cinematic marketing sections on mobile so the app shell
+     can take over the viewport. The hero stays for visual identity. */
+  body.briz-mobile-app-on .quote-band,
+  body.briz-mobile-app-on .features-cta-block,
+  body.briz-mobile-app-on .introduction-cta-row,
+  body.briz-mobile-app-on .fleet-scroll-hint,
+  body.briz-mobile-app-on .fares-foot {
+    display: none !important;
+  }
+
+  .briz-mobile-app {
+    display: block;
+    position: fixed; left: 0; right: 0; bottom: 0;
+    z-index: 60; pointer-events: none;
+  }
+  .briz-mobile-app-bar {
+    pointer-events: auto;
+    margin: 12px;
+    padding: 14px 18px;
+    background: rgba(14,17,22,0.92); color: #F2EDE4;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(201,183,154,0.3);
+    border-radius: 18px;
+    display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+  }
+  .briz-mobile-app-icon {
+    width: 40px; height: 40px; flex: 0 0 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #C9B79A, #8B7B5C);
+    display: flex; align-items: center; justify-content: center;
+    color: #0E1116; font-weight: 700; font-size: 18px;
+    font-family: "Fraunces", Georgia, serif;
+  }
+  .briz-mobile-app-text {
+    flex: 1; min-width: 0;
+  }
+  .briz-mobile-app-title {
+    font-size: 14px; font-weight: 600; letter-spacing: 0.02em; line-height: 1.2;
+  }
+  .briz-mobile-app-sub {
+    font-size: 11px; color: rgba(242,237,228,0.65); margin-top: 2px;
+    letter-spacing: 0.04em;
+  }
+  .briz-mobile-app-cta {
+    background: var(--color-accent, #C9B79A); color: #0E1116;
+    border: 0; cursor: pointer; font: inherit; font-weight: 600;
+    padding: 10px 14px; border-radius: 999px;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    flex: 0 0 auto;
+  }
+
+  /* On mobile, give the cinematic hero room above the app bar */
+  body { padding-bottom: 96px; }
+
+  /* Sample-fares grid stacks comfortably */
+  .fares-grid { gap: 16px; }
+  .fares { padding: 64px 16px 96px; }
+  .fares-card { padding: 22px 18px; }
+}
 </style>
 
 <!-- Structured data — LocalBusiness / LimousineService -->
@@ -2662,7 +2865,6 @@ elevenlabs-convai {
   "url": "https://www.briz.com",
   "logo": "https://www.briz.com/hero-og.jpg",
   "image": "https://www.briz.com/hero-og.jpg",
-  "telephone": "+1-866-666-6666",
   "email": "info@briz.com",
   "priceRange": "$$$",
   "address": {
@@ -2796,14 +2998,14 @@ elevenlabs-convai {
     { "@type": "Question", "name": "Can I bring my dog?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, all vehicles are pet-friendly with a 24-hour notice. A blanket goes over the seat, a towel in the footwell, water bowl in the console." } },
     { "@type": "Question", "name": "What's the cancellation policy?", "acceptedAnswer": { "@type": "Answer", "text": "Cancellations are accepted by email only and counted by the day. After confirmation: 30% fee. Within 7 days of pickup: 50%. Within 24 hours: 100% (no refund). No-show or same-day cancel: 100%. Damages or contamination requiring deep cleaning incur a $250 sanitation fee." } },
     { "@type": "Question", "name": "Corporate accounts?", "acceptedAnswer": { "@type": "Answer", "text": "Net-30 monthly invoicing, travel-manager dashboard, roadshow coordination. Email corporate@briz.com or call the concierge line." } },
-    { "@type": "Question", "name": "What's the promotional rate?", "acceptedAnswer": { "@type": "Answer", "text": "First-Time Customers and Early Reservations save when they book by tomorrow noon. Rates vary by vehicle — for example, a Party Bus 18-20 drops from $320/hr to $239/hr, plus taxes and processing fees. Call 1-866-666-6666 and we'll quote your specific trip in two minutes." } },
+    { "@type": "Question", "name": "How do I get a quote?", "acceptedAnswer": { "@type": "Answer", "text": "Talk to BRiZ — our 24/7 AI concierge. The widget bottom-right of the page connects you in one click, voice or text. You'll get a firm rate (Carmel-backed pricing, all-in including airport and congestion fees) in under a minute, and you can book it in the same conversation." } },
     { "@type": "Question", "name": "What's included in the vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Every Party Bus, Stretch, Sprinter, and Hummer in our fleet includes napkins, plastic cups, glasses, water, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input, and the most professional chauffeur. Sedans and SUVs include cell phone chargers, WiFi, leather seats, and water." } }
   ]
 }
 </script>
 
 </head>
-<body>
+<body class="briz-mobile-app-on">
 
 <!-- Inline SVG defs — wordmark + monogram, currentColor inherits -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -2854,10 +3056,10 @@ elevenlabs-convai {
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <a href="tel:+18666666666" class="nav-phone">
-        <span class="phone-label">24 / 7 Concierge</span>
-        1-866-666-6666
-      </a>
+      <button type="button" class="nav-phone" onclick="brizTalk()" aria-label="Talk to BRiZ AI concierge">
+        <span class="phone-label">24 / 7 AI Concierge</span>
+        Talk to BRiZ
+      </button>
       <a href="#contact" class="nav-cta">Reserve Your Evening</a>
     </div>
     <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
@@ -2872,7 +3074,7 @@ elevenlabs-convai {
   <a href="#nightout">The Evening</a>
   <a href="#pricing">Pricing</a>
   <a href="#contact">Contact</a>
-  <a href="tel:+18666666666" class="nav-mobile-phone">1-866-666-6666</a>
+  <button type="button" class="nav-mobile-phone" onclick="brizTalk()">Talk to BRiZ</button>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -2896,10 +3098,10 @@ elevenlabs-convai {
       <p class="hero-sub">A licensed chauffeur fleet for the curated evening — theater to JFK, Midtown to Montauk. 24 / 7 concierge.</p>
       <p class="hero-promo-line"><em>Reserve by tomorrow noon — First-Time Customers and Early Reservations save.</em></p>
       <div class="hero-cta-row">
-        <a href="#contact" class="btn-primary">Reserve Your Evening <span class="arrow"></span></a>
-        <a href="tel:+18666666666" class="btn-ghost-light">Call 1-866-666-6666</a>
+        <button type="button" class="btn-primary" onclick="brizTalk()">Talk to BRiZ <span class="arrow"></span></button>
+        <a href="#fleet" class="btn-ghost-light">See the fleet</a>
       </div>
-      <div class="hero-credits">24/7 · <a href="tel:+18666666666" style="color:inherit;text-decoration:none">1-866-666-6666</a> · three easy steps online · ★ 4.6 on Yelp · 138 reviews · TLC · DOT · NLA · $4M Insured</div>
+      <div class="hero-credits">24/7 · AI concierge · two-minute booking · ★ 4.6 on Yelp · 138 reviews · TLC · DOT · NLA · $4M Insured</div>
     </div>
   </div>
 
@@ -2960,7 +3162,7 @@ elevenlabs-convai {
       </article>
     </div>
 
-    <p class="steps-fallback reveal">Or call our 24/7 line — <a href="tel:+18666666666">1-866-666-6666</a> — and we'll arrange it for you in under 2 minutes.</p>
+    <p class="steps-fallback reveal">Or <button type="button" class="link-inline" onclick="brizTalk()">talk to BRiZ</button> — our AI concierge handles the whole booking, voice or text, in under two minutes.</p>
   </div>
 </section>
 
@@ -3185,7 +3387,7 @@ elevenlabs-convai {
 
     <p class="features-cta reveal">
       Two minutes on the phone and we'll quote your trip.
-      <a href="tel:+18666666666" class="features-cta-phone">1-866-666-6666</a>
+      <button type="button" class="features-cta-phone" onclick="brizTalk()">Talk to BRiZ</button>
     </p>
   </div>
 </section>
@@ -3247,13 +3449,36 @@ elevenlabs-convai {
   </div>
 </section>
 
-<!-- ───────────── Live catalog hydration: reads from briz-os ─────────────
-     Replaces the static fallback cards above with the live Carmel-backed
-     catalog. Endpoint is CORS-enabled. Failures leave the fallback in place. -->
+<!-- ───────────── Sample Fares (Carmel-backed) ─────────────
+     Live "from $X" pricing for popular NYC routes. Hydrates from
+     briz-os.vercel.app/api/carmel/sample-pricing. Same CORS pattern. -->
+<section class="fares" id="fares">
+  <div class="fares-head reveal">
+    <span class="section-eyebrow">Sample fares</span>
+    <h2 class="section-headline">Real prices, <em>live</em>.</h2>
+    <div class="iridescent-rule-thin" style="width:96px"></div>
+    <p class="section-sub">All-in totals from our dispatch backend — base fare, airport fee, and Manhattan congestion surcharge included. Tolls and gratuity extra. Quotes refresh on every page load.</p>
+  </div>
+  <div class="fares-grid" id="fares-grid" data-state="loading">
+    <div class="fares-loading">Loading live pricing…</div>
+  </div>
+  <div class="fares-foot reveal">
+    <p>Need a different route, group size, or hourly rate? <button type="button" class="link-inline" onclick="brizTalk()">Talk to BRiZ</button> — quotes in under a minute.</p>
+  </div>
+</section>
+
+<!-- ───────────── Live catalog + sample-pricing hydration ─────────────
+     1. Fetch /api/carmel/catalog        (vehicle classes + capacity)
+     2. Fetch /api/carmel/sample-pricing (routes × classes pricing)
+     3. Render fleet cards with "from $X" labels
+     4. Render the sample-fares grid below the fleet showcase
+     5. Wire all "Reserve" buttons to brizTalk() so they activate the AI agent
+-->
 <script>
 (function () {
-  var ENDPOINT = "https://briz-os.vercel.app/api/carmel/catalog";
+  var BASE = "https://briz-os.vercel.app";
   var track = document.getElementById("fleet-track");
+  var faresGrid = document.getElementById("fares-grid");
   if (!track) return;
 
   var imgFor = {
@@ -3273,16 +3498,24 @@ elevenlabs-convai {
     WV: "ADA-compliant vehicle with ramp/lift. Always available on request — no awkward calls, no waiting."
   };
 
-  fetch(ENDPOINT, { mode: "cors" })
-    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-    .then(function (data) {
-      if (!data || !data.ok || !Array.isArray(data.classes) || data.classes.length === 0) return;
+  Promise.all([
+    fetch(BASE + "/api/carmel/catalog",        { mode: "cors" }).then(function (r) { return r.json(); }).catch(function () { return null; }),
+    fetch(BASE + "/api/carmel/sample-pricing", { mode: "cors" }).then(function (r) { return r.json(); }).catch(function () { return null; })
+  ]).then(function (results) {
+    var catalog = results[0];
+    var pricing = results[1];
 
-      var html = data.classes.map(function (c) {
-        var img = imgFor[c.id] || c.pictureUrl || "assets/images/fleet-sedan.png";
-        var blurb = blurbFor[c.id] || (c.description || "");
+    // ── Render fleet cards (with "from $X" overlay if pricing came back) ──
+    if (catalog && catalog.ok && Array.isArray(catalog.classes) && catalog.classes.length) {
+      var fromBy = (pricing && pricing.fromByClass) || {};
+      var html = catalog.classes.map(function (c) {
+        var img       = imgFor[c.id] || c.pictureUrl || "assets/images/fleet-sedan.png";
+        var blurb     = blurbFor[c.id] || (c.description || "");
         var bagsLabel = c.maxLuggage > 0 ? c.maxLuggage + " bag" + (c.maxLuggage === 1 ? "" : "s") : "Carry-on";
-        var paxLabel = c.maxPassengers + " passenger" + (c.maxPassengers === 1 ? "" : "s");
+        var paxLabel  = c.maxPassengers + " passenger" + (c.maxPassengers === 1 ? "" : "s");
+        var fromTxt   = (typeof fromBy[c.id] === "number")
+          ? '<span class="fleet-fromprice">From <strong>$' + Math.round(fromBy[c.id]) + '</strong> to JFK</span>'
+          : '';
         return [
           '<article class="fleet-card reveal">',
             '<div class="fleet-image"><img src="' + img + '" alt="' + c.name + ' photographed for BRiZ" loading="lazy" decoding="async"></div>',
@@ -3292,27 +3525,84 @@ elevenlabs-convai {
               '<p class="fleet-meta">', paxLabel, ' · ', bagsLabel,
                   (c.maxWheelchairs ? ' · ADA accessible' : ''), '</p>',
               '<p class="fleet-detail">', blurb, '</p>',
-              '<a href="#contact" class="fleet-link" data-class="' + c.id + '">Reserve</a>',
+              fromTxt,
+              '<button type="button" class="fleet-link" data-class="' + c.id + '" onclick="brizTalk(\'' + c.id + '\')">Reserve →</button>',
             '</div>',
           '</article>'
         ].join("");
       }).join("");
-
       track.innerHTML = html;
       track.setAttribute("data-state", "live");
-
-      // Re-arm the IntersectionObserver for the freshly inserted .reveal cards
       if (window.__brizReveal && typeof window.__brizReveal.observe === "function") {
-        track.querySelectorAll(".reveal").forEach(function (el) {
-          window.__brizReveal.observe(el);
-        });
+        track.querySelectorAll(".reveal").forEach(function (el) { window.__brizReveal.observe(el); });
       }
-    })
-    .catch(function () {
-      // Silent: fallback cards remain visible
-      track.setAttribute("data-state", "fallback");
-    });
+    }
+
+    // ── Render the sample-fares grid ──
+    if (faresGrid && pricing && pricing.ok && Array.isArray(pricing.routes) && pricing.routes.length) {
+      var rowsHtml = pricing.routes.map(function (r) {
+        var availableQuotes = (r.quotes || []).filter(function (q) { return q.available && q.total != null; });
+        if (availableQuotes.length === 0) return "";
+        var minQ = availableQuotes.reduce(function (a, b) { return a.total < b.total ? a : b; });
+        var classRows = availableQuotes.slice(0, 6).map(function (q) {
+          return '<li><span class="fares-class">' + q.className + '</span>' +
+                 '<span class="fares-cap">' + q.maxPassengers + ' pax</span>' +
+                 '<span class="fares-price">$' + Math.round(q.total) + '</span></li>';
+        }).join("");
+        return [
+          '<article class="fares-card reveal">',
+            '<header class="fares-card-head">',
+              '<h3 class="fares-route">', r.label, '</h3>',
+              '<span class="fares-from">From <strong>$' + Math.round(minQ.total) + '</strong></span>',
+            '</header>',
+            '<ul class="fares-classes">', classRows, '</ul>',
+            '<button type="button" class="fares-cta" onclick="brizTalk(null, \'' + r.label.replace(/'/g, "\\'") + '\')">Quote my version →</button>',
+          '</article>'
+        ].join("");
+      }).join("");
+      faresGrid.innerHTML = rowsHtml;
+      faresGrid.setAttribute("data-state", "live");
+      if (window.__brizReveal && typeof window.__brizReveal.observe === "function") {
+        faresGrid.querySelectorAll(".reveal").forEach(function (el) { window.__brizReveal.observe(el); });
+      }
+    } else if (faresGrid) {
+      faresGrid.innerHTML = '<p class="fares-empty">Live pricing temporarily unavailable. <button type="button" class="link-inline" onclick="brizTalk()">Talk to BRiZ</button> for a custom quote.</p>';
+      faresGrid.setAttribute("data-state", "fallback");
+    }
+  });
 })();
+
+// ── Voice agent activation ───────────────────────────────────────
+// brizTalk(carmelClassId?, routeLabel?) — opens / focuses the
+// ElevenLabs widget. Optional args are passed via custom event so
+// the agent can reference a specific class or route in its greeting.
+window.brizTalk = function (carmelClassId, routeLabel) {
+  // Find the widget element and trigger its open state
+  var widget = document.querySelector("elevenlabs-convai");
+  if (!widget) {
+    console.warn("[brizTalk] ElevenLabs widget not found yet — try again in a second.");
+    return;
+  }
+  // Try several activation paths the widget supports across versions
+  if (typeof widget.openModal === "function") {
+    widget.openModal();
+  } else if (typeof widget.open === "function") {
+    widget.open();
+  } else {
+    // Fallback: simulate a click on the widget shell to expand it
+    var shadow = widget.shadowRoot;
+    var btn = shadow ? shadow.querySelector("button, [role='button']") : null;
+    if (btn) btn.click();
+    else widget.click();
+  }
+  // Surface the user's intent for the agent
+  if (carmelClassId || routeLabel) {
+    window.dispatchEvent(new CustomEvent("briz-talk-intent", {
+      detail: { carmelClassId: carmelClassId || null, routeLabel: routeLabel || null }
+    }));
+    console.log("[brizTalk] intent:", { carmelClassId: carmelClassId, routeLabel: routeLabel });
+  }
+};
 </script>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -3324,7 +3614,7 @@ elevenlabs-convai {
       <span class="quote-band-eyebrow">Get a quote now</span>
       <h2 class="quote-band-headline"><em>Two minutes. One call. Done.</em></h2>
       <p class="quote-band-sub">Tell our concierge what you need — vehicle, date, time, passengers. We send the cleaned reply with rate and inclusions, plus the special-offer rate if you reserve by tomorrow noon.</p>
-      <a href="tel:+18666666666" class="quote-band-phone">1-866-666-6666</a>
+      <button type="button" class="quote-band-phone" onclick="brizTalk()">Talk to BRiZ</button>
       <p class="quote-band-foot">Or three easy steps at <a href="https://www.briz.com" target="_blank" rel="noopener noreferrer">www.briz.com</a></p>
       <div class="quote-band-cta-row">
         <a href="#contact" class="btn-primary">Reserve Your Evening <span class="arrow"></span></a>
@@ -3833,7 +4123,7 @@ elevenlabs-convai {
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer-wrap">
-          <p class="faq-answer">First-Time Customers and Early Reservations save when they book by tomorrow noon. Rates vary by vehicle — for example, a Party Bus 18-20 drops from $320/hr to $239/hr, plus taxes and processing fees. Call <a href="tel:+18666666666">1-866-666-6666</a> and we'll quote your specific trip in two minutes.</p>
+          <p class="faq-answer">Talk to BRiZ — our AI concierge is plugged into the live Carmel pricing API, so the quote you hear is the firm all-in rate (airport fees, congestion, the lot). Tap the widget bottom-right of this page, voice or text, and you'll have a number in under a minute.</p>
         </div>
       </div>
 
@@ -3878,7 +4168,7 @@ elevenlabs-convai {
       </p>
       <div class="introduction-cta-row">
         <a href="mailto:introductions@briz.com" class="introduction-cta-primary">Request an introduction</a>
-        <a href="tel:+18666666666" class="introduction-cta-ghost">1-866-666-6666</a>
+        <button type="button" class="introduction-cta-ghost" onclick="brizTalk()">Talk to BRiZ</button>
       </div>
       <div class="introduction-foot">
         introductions@briz.com · 24/7 concierge · NYC + tri-state
@@ -3896,7 +4186,7 @@ elevenlabs-convai {
     <p class="final-cta-sub reveal">Reserve your evening, or have a concierge call you within ten minutes.</p>
     <div class="final-cta-row reveal">
       <a href="mailto:reservations@briz.com" class="btn-primary">Reserve Your Evening <span class="arrow"></span></a>
-      <a href="tel:+18666666666" class="btn-ghost-light">Call 1-866-666-6666</a>
+      <button type="button" class="btn-ghost-light" onclick="brizTalk()">Talk to BRiZ</button>
     </div>
 
     <div class="newsletter reveal">
@@ -3916,7 +4206,7 @@ elevenlabs-convai {
 <div class="footer-quote-band" aria-label="Quick reservation">
   <div class="footer-quote-band-inner">
     <div class="footer-quote-band-text">
-      Reserve in two minutes — call <a href="tel:+18666666666">1-866-666-6666</a> or <a href="https://www.briz.com" target="_blank" rel="noopener noreferrer">three easy steps at www.briz.com</a>.
+      Reserve in two minutes — <button type="button" class="link-inline" onclick="brizTalk()">talk to BRiZ</button> right here on this page, voice or text. Carmel-backed pricing, instant confirmation.
     </div>
     <div class="footer-quote-band-signoff">Briz · 24/7 Concierge</div>
   </div>
@@ -3935,7 +4225,7 @@ elevenlabs-convai {
         <address class="footer-address">
           By appointment<br>
           Yonkers · Manhattan<br><br>
-          <a href="tel:+18666666666">1-866-666-6666</a><br>
+          <button type="button" class="link-inline" onclick="brizTalk()">Talk to BRiZ — AI concierge</button><br>
           info@briz.com
         </address>
       </div>
@@ -3954,7 +4244,7 @@ elevenlabs-convai {
       <div class="footer-col">
         <h4>Reach Us</h4>
         <ul>
-          <li><a href="tel:+18666666666">1-866-666-6666</a></li>
+          <li><button type="button" class="link-inline" onclick="brizTalk()">Talk to BRiZ — 24/7</button></li>
           <li><a href="mailto:info@briz.com">info@briz.com</a></li>
           <li><a href="mailto:reservations@briz.com">Reservations</a></li>
           <li><a href="mailto:corporate@briz.com">Corporate Accounts</a></li>
@@ -4423,6 +4713,23 @@ elevenlabs-convai {
   }
 })();
 </script>
+
+<!-- ────────────────────────────────────────────────────────────
+     MOBILE CUSTOMER APP SHELL — only visible on phones
+     Fixed bar at the bottom of the viewport that gives the AI
+     concierge a one-tap entry point. The full marketing site
+     stays scrollable above; this is the booking-funnel layer.
+     ──────────────────────────────────────────────────────────── -->
+<aside class="briz-mobile-app" aria-label="BRiZ AI concierge — book or quote">
+  <div class="briz-mobile-app-bar">
+    <div class="briz-mobile-app-icon" aria-hidden="true">B</div>
+    <div class="briz-mobile-app-text">
+      <div class="briz-mobile-app-title">Talk to BRiZ</div>
+      <div class="briz-mobile-app-sub">Live quote · book in 2 min · 24/7</div>
+    </div>
+    <button type="button" class="briz-mobile-app-cta" onclick="brizTalk()">Open</button>
+  </div>
+</aside>
 
 </body>
 </html>
