@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  BRiZ monogram · diamond mark
+  Pure geometry — no font dependency. Renders perfectly at favicon scale (16px) and large (1024px+).
+  Use for: favicon, app icon, business-card foil, lapel pin, luggage tag.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 64 64"
+     role="img"
+     aria-label="BRiZ">
+  <title>BRiZ</title>
+  <!-- Diamond outline (stroke version, like the wordmark dot) -->
+  <rect x="16" y="16" width="32" height="32"
+        transform="rotate(45 32 32)"
+        fill="none"
+        stroke="#0E1116"
+        stroke-width="3"
+        stroke-linejoin="miter"/>
+</svg>

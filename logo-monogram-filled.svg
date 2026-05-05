@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  BRiZ monogram · solid diamond (filled variant)
+  Use this when the outline diamond is too thin for the size context (e.g. small favicons,
+  watermarks). For most use cases prefer logo-monogram.svg (outline).
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 64 64"
+     role="img"
+     aria-label="BRiZ">
+  <title>BRiZ</title>
+  <rect x="16" y="16" width="32" height="32"
+        transform="rotate(45 32 32)"
+        fill="#0E1116"/>
+</svg>

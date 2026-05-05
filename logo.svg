@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  BRiZ wordmark · positive (ink on transparent/ivory)
+
+  Construction:
+    - Three uppercase letterforms (B, R, Z) + one lowercase (i)
+    - Set in Inter Tight 500 (Google Fonts), letter-spacing -0.04em
+    - The "i" is rendered without its built-in tittle (we hide it by using "ı" — dotless i — U+0131)
+    - The diamond dot is drawn as an SVG rect rotated 45° above the i-stem
+    - Rendered crisp at any size; no rasterization
+
+  Inter Tight is loaded by the host page (Google Fonts).
+  System fallback stack covers offline/print rendering.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 220 64"
+     role="img"
+     aria-label="BRiZ"
+     preserveAspectRatio="xMinYMid meet">
+  <title>BRiZ</title>
+  <style>
+    .briz-wordmark {
+      font-family: "Inter Tight", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 500;
+      font-size: 56px;
+      letter-spacing: -0.05em;
+      fill: #0E1116;
+      font-feature-settings: "ss01" on, "cv11" on;
+    }
+  </style>
+  <!-- "BRıZ" — the ı is the dotless lowercase i (U+0131); we draw the dot ourselves -->
+  <text x="0" y="48" class="briz-wordmark">BRıZ</text>
+  <!-- Diamond dot above the i. i sits between R and Z; visually centered above the i-stem.
+       The i-stem starts at ~117px and is ~12px wide; center the diamond at x=124, y=14. -->
+  <rect x="119" y="9" width="10" height="10"
+        transform="rotate(45 124 14)"
+        fill="none"
+        stroke="#0E1116"
+        stroke-width="2.2"
+        stroke-linejoin="miter"/>
+</svg>

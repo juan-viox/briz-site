@@ -1,0 +1,22 @@
+# OS noise
+.DS_Store
+
+# Vercel local link
+.vercel
+
+# Editor
+*.swp
+.vscode/
+.idea/
+
+# Env (defense in depth — site is static so should never have envs)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Node (defensive — no node deps in this folder, but just in case)
+node_modules/

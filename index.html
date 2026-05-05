@@ -1,0 +1,3865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briz · New York, arranged for you.</title>
+<meta name="description" content="Briz — a licensed chauffeur fleet for the curated NYC evening. 24/7 · 1-866-666-6666 · three easy steps online. TLC, DOT, NLA, $4M insured.">
+<meta name="theme-color" content="#1E293B">
+<meta name="author" content="Briz">
+<meta name="keywords" content="NYC chauffeur, Broadway limo service, JFK airport car service, Hamptons car service, Manhattan limousine, Westchester chauffeur, wedding transportation NYC, corporate car service">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.briz.com">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Briz · New York, arranged for you.">
+<meta property="og:description" content="A licensed chauffeur fleet for the curated NYC evening. 24/7 · 1-866-666-6666 · three easy steps online.">
+<meta property="og:url" content="https://www.briz.com">
+<meta property="og:image" content="https://www.briz.com/hero-og.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:site_name" content="Briz">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Briz · New York, arranged for you.">
+<meta name="twitter:description" content="A licensed chauffeur fleet for the curated NYC evening. 1-866-666-6666.">
+<meta name="twitter:image" content="https://www.briz.com/hero-og.jpg">
+
+<!-- Favicon — BLNY monogram, slate-800 -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='16' y='16' width='32' height='32' transform='rotate(45 32 32)' fill='%230E1116'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Resource hints — preconnect to GSAP CDN, dns-prefetch to the OS Yelp proxy. -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://briz-os.vercel.app">
+
+<!-- LCP optimization: preload the first scroll-driven hero frame so the curtain
+     paints at first-byte rather than waiting on the IntersectionObserver. -->
+<link rel="preload" as="image" href="assets/frames/frame_0001.jpg" fetchpriority="high">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   Briz v2 — Liquid Glass Design System
+   Slate + Red, Light-mode dominant, frosted glass surfaces.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* =========================================================
+     BRiZ — Onyx & Ivory palette (v1, 2026-05-04)
+     A monochromatic system with one restrained accent.
+     Champagne is never a fill > 4px — only hairlines, the i-dot,
+     and foil-stamp moments.
+     ========================================================= */
+
+  /* Brand-native tokens (use these in new code) */
+  --ink:           #0E1116;
+  --graphite:      #2A2D33;
+  --mist:          #5A5A56;
+  --ivory:         #F2EDE4;
+  --paper:         #FAF8F3;
+  --hairline:      rgba(14, 17, 22, 0.12);
+  --champagne:     #C9B79A;
+  --champagne-deep:#B89A78;
+
+  /* Legacy semantic aliases — keep existing CSS rules working */
+  --color-primary:        var(--ink);
+  --color-on-primary:     var(--ivory);
+  --color-secondary:      var(--graphite);
+  --color-accent:         var(--champagne);
+  --color-accent-deep:    var(--champagne-deep);
+  --color-accent-soft:    #ECE3D2;
+  --color-background:     var(--ivory);
+  --color-foreground:     var(--ink);
+  --color-foreground-soft: var(--mist);
+  --color-muted:          #EDE7DA;
+  --color-border:         var(--hairline);
+  --color-border-subtle:  rgba(14, 17, 22, 0.06);
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:    'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+
+  /* Shadows — quiet, ink-toned (no colored glow; luxury rarely uses shadow) */
+  --shadow-sm:       0 1px 2px rgba(14, 17, 22, 0.04);
+  --shadow-md:       0 4px 12px -2px rgba(14, 17, 22, 0.08);
+  --shadow-lg:       0 10px 24px -8px rgba(14, 17, 22, 0.12);
+  --shadow-xl:       0 20px 40px -12px rgba(14, 17, 22, 0.18);
+  --shadow-glass:    0 8px 32px rgba(14, 17, 22, 0.08);
+  --shadow-glass-lg: 0 24px 64px rgba(14, 17, 22, 0.14);
+  --shadow-red:      0 6px 24px -8px rgba(14, 17, 22, 0.18); /* (legacy var name; was a red CTA glow — now a quiet ink shadow) */
+
+  /* Easing — preserve site-wide animation rhythms */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-fluid:  cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-quiet:  cubic-bezier(0.22, 1, 0.36, 1); /* BRiZ signature */
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-foreground);
+  background: var(--color-background);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: clip;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul, ol { list-style: none; }
+input, select, textarea { font-family: inherit; }
+
+/* Selection */
+::selection { background: var(--color-accent); color: #FFF; }
+
+/* ─── Containers + utility ─── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 64px);
+}
+.container-wide {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 48px);
+}
+
+/* ─── Typography ─── */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+}
+.display-italic {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+}
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-accent);
+  display: inline-block;
+}
+.eyebrow-on-dark { color: rgba(255,255,255,0.7); }
+.label-caps {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ─── Liquid Glass surfaces ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: var(--shadow-glass);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  border-radius: 20px;
+  box-shadow: var(--shadow-glass);
+}
+.glass-dark {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #FFF;
+  border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+/* ─── Iridescent rule + chips ─── */
+.iridescent {
+  background: linear-gradient(135deg,
+    #DC2626 0%, #F472B6 25%, #A855F7 50%, #3B82F6 75%, #DC2626 100%);
+  background-size: 400% 400%;
+  animation: iridescent-shift 8s ease infinite;
+}
+.iridescent-rule {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%, #DC2626 20%, #F472B6 35%, #A855F7 50%, #3B82F6 65%, #DC2626 80%, transparent 100%);
+  background-size: 400% 100%;
+  animation: iridescent-shift 8s ease infinite;
+  border: none;
+  border-radius: 999px;
+}
+.iridescent-rule-thin {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%, #DC2626 30%, #A855F7 50%, #3B82F6 70%, transparent 100%);
+  background-size: 400% 100%;
+  animation: iridescent-shift 10s ease infinite;
+  border: none;
+}
+@keyframes iridescent-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ─── Morphing background blob ─── */
+.blob-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.blob-bg svg {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.45;
+}
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  animation: blob-float-1 22s ease-in-out infinite;
+}
+.blob-2 {
+  bottom: -10%;
+  right: -10%;
+  width: 45vw;
+  height: 45vw;
+  animation: blob-float-2 28s ease-in-out infinite;
+}
+@keyframes blob-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.08); }
+  66% { transform: translate(-20px, 30px) scale(0.95); }
+}
+@keyframes blob-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -40px) scale(1.12); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-accent);
+  color: #FFF;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition: all 280ms var(--ease-smooth);
+  cursor: pointer;
+  border: 1px solid var(--color-accent);
+}
+.btn-primary:hover {
+  background: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-red);
+}
+.btn-primary .arrow {
+  width: 18px; height: 1.5px; background: currentColor; position: relative;
+  transition: width 280ms var(--ease-smooth);
+}
+.btn-primary .arrow::after {
+  content: ''; position: absolute; right: 0; top: -3px; width: 9px; height: 9px;
+  border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+.btn-primary:hover .arrow { width: 26px; }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition: all 280ms var(--ease-smooth);
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: #FFF;
+  transform: translateY(-1px);
+}
+
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.10);
+  color: #FFF;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition: all 280ms var(--ease-smooth);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.btn-ghost-light:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.6);
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  transition: all 360ms var(--ease-smooth);
+  background: transparent;
+}
+.nav.scrolled {
+  background: rgba(248, 250, 252, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  padding: 12px 0;
+  box-shadow: 0 1px 0 rgba(15,23,42,0.04);
+}
+.nav-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.nav-logo {
+  color: #FFF;
+  width: 210px;             /* +50% from 140px */
+  height: auto;
+  display: flex;
+  align-items: center;
+  transition: color 360ms var(--ease-smooth);
+}
+.nav-logo svg { width: 100%; height: auto; }
+.nav.scrolled .nav-logo { color: var(--color-primary); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;                /* slight bump to breathe with bigger labels */
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 21px;          /* +50% from 14px */
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 240ms var(--ease-smooth);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+.nav-links a:hover { color: #FFF; }
+.nav.scrolled .nav-links a { color: var(--color-secondary); }
+.nav.scrolled .nav-links a:hover { color: var(--color-accent); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;                /* slight bump to balance bigger CTA */
+}
+.nav-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-body);
+  font-size: 21px;          /* +50% from 14px */
+  font-weight: 500;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.1;
+  cursor: pointer;
+  transition: color 240ms var(--ease-smooth);
+}
+.nav-phone .phone-label {
+  font-size: 13px;          /* +50% from 9px (rounded) */
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2px;
+}
+.nav.scrolled .nav-phone { color: var(--color-secondary); }
+.nav.scrolled .nav-phone .phone-label { color: var(--color-foreground-soft); }
+.nav-phone:hover { color: var(--color-accent); }
+
+.nav-cta {
+  background: var(--color-accent);
+  color: #FFF !important;
+  padding: 14px 28px;       /* proportional bump from 10px 20px */
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 20px;          /* +50% from 13px (rounded) */
+  letter-spacing: 0.01em;
+  transition: all 280ms var(--ease-smooth);
+  cursor: pointer;
+  border: 1px solid var(--color-accent);
+}
+.nav-cta:hover {
+  background: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+.nav-hamburger span {
+  width: 24px; height: 1.5px; background: #FFF;
+  transition: all 280ms var(--ease-smooth);
+  display: block;
+}
+.nav.scrolled .nav-hamburger span { background: var(--color-primary); }
+
+/* Mobile menu */
+.nav-mobile {
+  position: fixed;
+  inset: 0;
+  background: rgba(248, 250, 252, 0.96);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms var(--ease-smooth);
+}
+.nav-mobile.open { opacity: 1; pointer-events: auto; }
+.nav-mobile a {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+.nav-mobile-phone {
+  font-family: var(--font-body);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-foreground-soft);
+  margin-top: 18px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — scroll-driven frames + dark glass overlay card
+   ═══════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-primary);
+}
+.hero-frame-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.hero-frame-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(15,23,42,0.45) 0%, rgba(15,23,42,0.20) 35%, rgba(15,23,42,0.30) 70%, rgba(15,23,42,0.85) 100%);
+  pointer-events: none;
+}
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 100px;
+}
+.hero-glass-card {
+  max-width: 720px;
+  width: 100%;
+  padding: clamp(32px, 5vw, 56px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: #FFF;
+}
+.hero-headline .accent {
+  font-style: normal;
+  font-weight: 500;
+  display: block;
+}
+.hero-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+  max-width: 520px;
+}
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.hero-credits {
+  margin-top: 10px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  width: 100%;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+.hero-yelp {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+}
+.hero-yelp-star {
+  color: var(--color-accent);
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.hero-yelp-text {
+  white-space: nowrap;
+}
+.hero-bottom-rule {
+  position: absolute;
+  bottom: 12vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, 70vw);
+  z-index: 4;
+}
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.hero-scroll-indicator .line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), transparent);
+  animation: scroll-pulse 2.4s ease-in-out infinite;
+}
+@keyframes scroll-pulse {
+  0%, 100% { transform: scaleY(0.6); transform-origin: top; opacity: 0.6; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TRUST STRIP
+   ═══════════════════════════════════════════════════════════ */
+.trust-strip {
+  background: #FFF;
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 18px 0;
+  overflow: hidden;
+  position: relative;
+}
+.trust-track {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: trust-marquee 40s linear infinite;
+  align-items: center;
+}
+.trust-item {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 48px;
+}
+.trust-item::after {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+@keyframes trust-marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STORYTELLING — "Why we exist"
+   ═══════════════════════════════════════════════════════════ */
+.story {
+  background: var(--color-background);
+  padding: clamp(72px, 12vh, 140px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+.story-image {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-glass-lg);
+}
+.story-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 800ms var(--ease-fluid);
+}
+.story-image:hover img { transform: scale(1.04); }
+.story-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(15,23,42,0.4) 100%);
+  pointer-events: none;
+}
+.story-image-tag {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #FFF;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.story-text { display: flex; flex-direction: column; gap: 28px; }
+.story-eyebrow { color: var(--color-accent); }
+.story-headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--color-foreground);
+}
+.story-headline em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+.story-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-secondary);
+}
+.story-body p + p { margin-top: 18px; }
+.story-rule {
+  width: 96px;
+  margin-top: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FEATURES GRID — six service cards
+   ═══════════════════════════════════════════════════════════ */
+.features {
+  background: var(--color-background);
+  padding: clamp(72px, 12vh, 140px) 0;
+  position: relative;
+}
+.features::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 10%;
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle, rgba(220,38,38,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+.section-head {
+  max-width: 720px;
+  margin: 0 auto clamp(48px, 8vh, 96px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.section-head .iridescent-rule-thin {
+  width: 64px;
+  margin-top: 4px;
+}
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.section-headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--color-foreground);
+}
+.section-headline em { font-style: italic; }
+.section-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-foreground-soft);
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.feature-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.55);
+  transition: all 360ms var(--ease-smooth);
+  cursor: pointer;
+  box-shadow: var(--shadow-glass);
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent 0%, transparent 30%, #DC2626 50%, #A855F7 70%, transparent 100%);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 480ms var(--ease-smooth);
+  pointer-events: none;
+  animation: iridescent-shift 6s ease infinite;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-lg);
+  background: rgba(255,255,255,0.8);
+}
+.feature-card:hover::before {
+  opacity: 1;
+}
+.feature-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+.feature-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease-fluid);
+}
+.feature-card:hover .feature-image img { transform: scale(1.05); }
+.feature-body {
+  padding: 28px 26px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1;
+}
+.feature-tag {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.feature-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.018em;
+  color: var(--color-foreground);
+}
+.feature-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.62;
+  color: var(--color-secondary);
+}
+.feature-link {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.04em;
+}
+.feature-link::after {
+  content: '→';
+  display: inline-block;
+  transition: transform 280ms var(--ease-smooth);
+}
+.feature-card:hover .feature-link::after { transform: translateX(6px); }
+
+/* ═══════════════════════════════════════════════════════════
+   FLEET SHOWCASE — horizontal scroll
+   ═══════════════════════════════════════════════════════════ */
+.fleet {
+  background: var(--color-background);
+  padding: clamp(72px, 12vh, 140px) 0;
+  overflow: hidden;
+  position: relative;
+}
+.fleet-head {
+  max-width: 1280px;
+  margin: 0 auto clamp(40px, 6vh, 64px);
+  padding: 0 clamp(20px, 4vw, 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+.fleet-head .iridescent-rule-thin {
+  width: 96px;
+  margin-top: 4px;
+}
+.fleet-track-wrap {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 16px 0 32px;
+}
+.fleet-track-wrap::-webkit-scrollbar { display: none; }
+.fleet-track {
+  display: flex;
+  gap: 28px;
+  padding: 0 clamp(20px, 4vw, 64px);
+}
+.fleet-card {
+  flex: 0 0 480px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.fleet-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-glass);
+}
+.fleet-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-fluid);
+}
+.fleet-card:hover .fleet-image img { transform: scale(1.04); }
+.fleet-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fleet-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: -0.018em;
+  color: var(--color-foreground);
+}
+.fleet-meta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-foreground-soft);
+}
+.fleet-detail {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-secondary);
+  margin-top: 4px;
+}
+.fleet-link {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-accent);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+.fleet-link::after {
+  content: '→';
+  transition: transform 280ms var(--ease-smooth);
+}
+.fleet-link:hover::after { transform: translateX(6px); }
+
+.fleet-scroll-hint {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 64px);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-foreground-soft);
+  align-items: center;
+}
+.fleet-scroll-hint .arrow {
+  width: 28px;
+  height: 1px;
+  background: var(--color-foreground-soft);
+  position: relative;
+}
+.fleet-scroll-hint .arrow::after {
+  content: '';
+  position: absolute;
+  top: -3px; right: 0;
+  width: 8px; height: 8px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STATS — dark band with floating glass cards
+   ═══════════════════════════════════════════════════════════ */
+.stats {
+  background: var(--color-foreground);
+  padding: clamp(72px, 12vh, 140px) 0;
+  position: relative;
+  overflow: hidden;
+  color: #FFF;
+}
+.stats::before {
+  content: '';
+  position: absolute;
+  top: -30%; left: -10%;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(220,38,38,0.18) 0%, transparent 60%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.stats::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; right: -10%;
+  width: 50vw; height: 50vw;
+  background: radial-gradient(circle, rgba(168,85,247,0.14) 0%, transparent 60%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.stats .container { position: relative; z-index: 1; }
+.stats .section-headline { color: #FFF; }
+.stats .section-eyebrow { color: rgba(255,255,255,0.7); }
+.stats .section-sub { color: rgba(255,255,255,0.65); }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  margin-top: 64px;
+}
+.stat-card {
+  padding: 32px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  transition: transform 480ms var(--ease-smooth);
+}
+.stat-card:hover { transform: translateY(-4px); }
+.stat-value {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--color-accent);
+}
+.stat-value.italic { font-style: italic; }
+.stat-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   THE NIGHT OUT — horizontal storytelling
+   ═══════════════════════════════════════════════════════════ */
+.nightout {
+  background: var(--color-background);
+  padding: clamp(72px, 12vh, 140px) 0;
+  overflow: hidden;
+  position: relative;
+}
+.nightout-track-wrap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 16px 0;
+}
+.nightout-track-wrap::-webkit-scrollbar { display: none; }
+.nightout-track {
+  display: flex;
+  gap: 24px;
+  padding: 0 clamp(20px, 4vw, 64px);
+}
+.nightout-card {
+  flex: 0 0 clamp(320px, 38vw, 460px);
+  height: 560px;
+  scroll-snap-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-glass-lg);
+}
+.nightout-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,23,42,0.20) 0%, rgba(15,23,42,0.30) 50%, rgba(15,23,42,0.85) 100%);
+  z-index: 1;
+}
+.nightout-content {
+  position: absolute;
+  bottom: 24px; left: 24px; right: 24px;
+  z-index: 3;
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #FFF;
+}
+.nightout-time {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
+}
+.nightout-venue {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.nightout-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PRICING TABLE
+   ═══════════════════════════════════════════════════════════ */
+.pricing {
+  background: var(--color-background);
+  padding: clamp(72px, 12vh, 140px) 0;
+  position: relative;
+}
+.pricing-table {
+  max-width: 880px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-glass);
+}
+.pricing-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.4fr;
+  gap: 24px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  align-items: center;
+  transition: background 280ms var(--ease-smooth);
+}
+.pricing-row:last-child { border-bottom: none; }
+.pricing-row:hover { background: rgba(255,255,255,0.45); }
+.pricing-row.head {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-foreground-soft);
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(241, 245, 249, 0.5);
+}
+.pricing-product {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-foreground);
+}
+.pricing-rate {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--color-accent);
+  letter-spacing: -0.01em;
+}
+.pricing-min {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--color-foreground-soft);
+}
+.pricing-note {
+  max-width: 880px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-foreground-soft);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHAUFFEURS — dark band, glass-dark frames
+   ═══════════════════════════════════════════════════════════ */
+.chauffeurs {
+  background: var(--color-foreground);
+  padding: clamp(72px, 12vh, 140px) 0;
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
+}
+.chauffeurs::before {
+  content: '';
+  position: absolute;
+  top: 20%; right: -10%;
+  width: 40vw; height: 40vw;
+  background: radial-gradient(circle, rgba(220,38,38,0.10) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+.chauffeurs .container { position: relative; z-index: 1; }
+.chauffeurs .section-headline { color: #FFF; }
+.chauffeurs .section-eyebrow { color: rgba(255,255,255,0.7); }
+.chauffeurs .section-sub { color: rgba(255,255,255,0.65); }
+.chauffeurs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+.chauffeur-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.10);
+  transition: all 360ms var(--ease-smooth);
+}
+.chauffeur-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+}
+.chauffeur-portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.chauffeur-portrait img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.95);
+  transition: filter 600ms var(--ease-smooth), transform 700ms var(--ease-fluid);
+}
+.chauffeur-card:hover .chauffeur-portrait img {
+  filter: grayscale(0) brightness(1);
+  transform: scale(1.03);
+}
+.chauffeur-meta { padding: 6px 8px 14px; }
+.chauffeur-role {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+.chauffeur-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -0.018em;
+  color: #FFF;
+  margin-bottom: 6px;
+}
+.chauffeur-langs {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TESTIMONIALS — On Record (real Yelp reviews)
+   ═══════════════════════════════════════════════════════════ */
+.testimonials {
+  background: var(--color-background);
+  padding: clamp(72px, 12vh, 140px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.testimonials::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: -8%;
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle, rgba(220,38,38,0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+.testimonials .container { position: relative; z-index: 1; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 28px 28px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: var(--shadow-glass);
+  transition: all 360ms var(--ease-smooth);
+}
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.82);
+  box-shadow: var(--shadow-glass-lg);
+}
+.testimonial-yelp-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px 5px;
+  background: var(--color-accent);
+  color: #FFF;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.testimonial-yelp-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FFF;
+}
+.testimonial-stars {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--color-accent);
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.testimonial-stars .star-empty {
+  color: rgba(220, 38, 38, 0.18);
+}
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: var(--color-foreground);
+}
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+.testimonial-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground);
+}
+.testimonial-date {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-foreground-soft);
+}
+.testimonials-more {
+  margin-top: 36px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-foreground-soft);
+}
+.testimonials-more a {
+  color: var(--color-accent);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+  padding-bottom: 1px;
+  transition: border-color 240ms var(--ease-smooth);
+}
+.testimonials-more a:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+/* Live-from-Yelp status line + skeleton states */
+.testimonials-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px auto 0;
+  padding: 6px 14px 7px;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.06);
+  border: 1px solid rgba(220, 38, 38, 0.14);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-foreground-soft);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 360ms var(--ease-smooth), transform 360ms var(--ease-smooth);
+}
+.testimonials-live.is-ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+.testimonials-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.6);
+  animation: testimonials-pulse 2.4s ease-in-out infinite;
+}
+.testimonials-live-star {
+  color: var(--color-accent);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.testimonials-live-text { color: var(--color-foreground); font-weight: 500; }
+@keyframes testimonials-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.55); }
+  50%      { box-shadow: 0 0 0 7px rgba(220, 38, 38, 0); }
+}
+
+/* Inline SVG stars (replaces ★ glyphs) */
+.testimonial-stars svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.testimonial-stars svg.is-empty path {
+  fill: rgba(220, 38, 38, 0.18);
+}
+
+/* Skeleton loading cards — match testimonial-card dimensions */
+.testimonial-skeleton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 28px 28px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: var(--shadow-glass);
+  min-height: 240px;
+}
+.testimonial-skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg,
+    rgba(15, 23, 42, 0.06) 0%,
+    rgba(15, 23, 42, 0.12) 40%,
+    rgba(15, 23, 42, 0.06) 80%
+  );
+  background-size: 200% 100%;
+  animation: testimonial-skeleton-shimmer 1.6s ease-in-out infinite;
+}
+.testimonial-skeleton-line.is-stars  { width: 88px; height: 14px; }
+.testimonial-skeleton-line.is-quote  { width: 100%; height: 16px; }
+.testimonial-skeleton-line.is-quote2 { width: 92%; height: 16px; }
+.testimonial-skeleton-line.is-quote3 { width: 70%; height: 16px; }
+.testimonial-skeleton-line.is-name   { width: 110px; height: 13px; margin-top: auto; }
+.testimonial-skeleton-line.is-date   { width: 80px; height: 10px; }
+@keyframes testimonial-skeleton-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Failure-state inline link (only shown if fetch fails) */
+.testimonials-fallback-note {
+  margin-top: 14px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--color-foreground-soft);
+}
+.testimonials-fallback-note a {
+  color: var(--color-accent);
+  border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+  padding-bottom: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-live-dot { animation: none; }
+  .testimonial-skeleton-line { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FAQ ACCORDION
+   ═══════════════════════════════════════════════════════════ */
+.faq {
+  background: var(--color-background);
+  padding: clamp(72px, 12vh, 140px) 0;
+  position: relative;
+}
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-row {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 360ms var(--ease-smooth);
+}
+.faq-row.open {
+  background: rgba(255,255,255,0.85);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-glass);
+}
+.faq-question {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 28px;
+  text-align: left;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-foreground);
+  cursor: pointer;
+  transition: color 240ms var(--ease-smooth);
+}
+.faq-question:hover { color: var(--color-accent); }
+.faq-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  position: relative;
+}
+.faq-icon::before, .faq-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  background: var(--color-accent);
+  border-radius: 1px;
+  transition: transform 320ms var(--ease-smooth);
+}
+.faq-icon::before {
+  width: 14px; height: 1.5px;
+  transform: translate(-50%, -50%);
+}
+.faq-icon::after {
+  width: 1.5px; height: 14px;
+  transform: translate(-50%, -50%);
+}
+.faq-row.open .faq-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+.faq-answer-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 480ms var(--ease-smooth);
+}
+.faq-row.open .faq-answer-wrap {
+  max-height: 320px;
+}
+.faq-answer {
+  padding: 0 28px 26px 32px;
+  border-left: 2px solid var(--color-accent);
+  margin-left: 28px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FINAL CTA + NEWSLETTER
+   ═══════════════════════════════════════════════════════════ */
+.final-cta {
+  background: var(--color-foreground);
+  padding: clamp(96px, 16vh, 180px) 0;
+  position: relative;
+  overflow: hidden;
+  color: #FFF;
+  text-align: center;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw; height: 80vw;
+  background: radial-gradient(circle, rgba(220,38,38,0.20) 0%, transparent 60%);
+  filter: blur(100px);
+  pointer-events: none;
+  animation: blob-float-1 20s ease-in-out infinite;
+}
+.final-cta .container { position: relative; z-index: 1; }
+.final-cta-headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #FFF;
+  margin-bottom: 20px;
+}
+.final-cta-sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.78);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.final-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 64px;
+}
+.newsletter {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.newsletter-eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 14px;
+  display: block;
+}
+.newsletter-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+.newsletter-input {
+  flex: 1;
+  padding: 13px 18px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 10px;
+  color: #FFF;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  transition: border 240ms var(--ease-smooth), background 240ms var(--ease-smooth);
+}
+.newsletter-input::placeholder { color: rgba(255,255,255,0.45); }
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: rgba(255,255,255,0.14);
+}
+.newsletter-submit {
+  padding: 13px 22px;
+  background: var(--color-accent);
+  color: #FFF;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition: all 280ms var(--ease-smooth);
+  cursor: pointer;
+}
+.newsletter-submit:hover {
+  background: var(--color-accent-deep);
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+.footer {
+  background: var(--color-foreground);
+  color: rgba(255,255,255,0.7);
+  padding: 72px 0 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 18px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col a {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.78);
+  transition: color 240ms var(--ease-smooth);
+  cursor: pointer;
+}
+.footer-col a:hover { color: var(--color-accent); }
+.footer-logo {
+  width: 180px;
+  color: #FFF;
+  margin-bottom: 20px;
+  display: block;
+}
+.footer-logo svg { width: 100%; height: auto; }
+.footer-address {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.66);
+}
+.footer-family {
+  padding: 24px 0 22px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-family-eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 4px;
+}
+.footer-family-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.42);
+  letter-spacing: 0.02em;
+}
+.footer-family-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.footer-family-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: -0.005em;
+  color: rgba(255,255,255,0.78);
+}
+.footer-family-row a.footer-family-name:hover {
+  color: var(--color-accent);
+}
+.footer-family-domain {
+  color: rgba(255,255,255,0.42);
+}
+.footer-family-sep {
+  color: rgba(255,255,255,0.18);
+  font-weight: 300;
+}
+.footer-family-here {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.footer-family-here::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.04em;
+}
+.footer-bottom a { color: inherit; transition: color 240ms; }
+.footer-bottom a:hover { color: var(--color-accent); }
+.footer-socials { display: flex; gap: 14px; align-items: center; }
+.footer-socials a {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 280ms var(--ease-smooth);
+}
+.footer-socials a:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+.footer-socials svg { width: 14px; height: 14px; }
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS — entrance reveals
+   ═══════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; max-width: 640px; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .footer-grid .footer-col:nth-child(4) { grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; }
+}
+
+@media (max-width: 900px) {
+  .nav-links, .nav-phone { display: none; }
+  .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .story-grid { grid-template-columns: 1fr; }
+  .story-image { aspect-ratio: 4 / 3; max-height: 480px; }
+  .chauffeurs-grid { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-grid .footer-col:nth-child(4) { grid-column: 1 / -1; }
+  .pricing-row { grid-template-columns: 1fr 1fr; gap: 12px; padding: 18px; font-size: 14px; }
+  .pricing-row .pricing-min { grid-column: 1 / -1; font-size: 12px; padding-top: 4px; }
+  .fleet-card { flex: 0 0 320px; }
+  .fleet-name { font-size: 24px; }
+  .nightout-card { flex: 0 0 86vw; height: 480px; }
+}
+
+@media (max-width: 640px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card { min-height: 140px; padding: 22px 14px; }
+  .stat-value { font-size: 32px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-submit { width: 100%; }
+  .hero-headline { font-size: 44px; }
+  .hero-glass-card { padding: 28px 22px; gap: 18px; }
+  .hero-credits { font-size: 9px; letter-spacing: 0.16em; }
+  .container, .container-wide { padding: 0 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .iridescent, .iridescent-rule, .iridescent-rule-thin { animation: none; }
+  .blob-1, .blob-2 { animation: none; }
+  .trust-track { animation: none; }
+  .scroll-indicator .line { animation: none; }
+}
+
+/* Focus states */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ElevenLabs widget positioning */
+elevenlabs-convai {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 200;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   v3 — SOP-voice additions (appended at end so existing styles stay intact)
+   ═══════════════════════════════════════════════════════════ */
+
+/* Hero promo italic line */
+.hero-promo-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.4;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: -0.005em;
+  margin-top: -6px;
+  max-width: 560px;
+}
+
+/* Steps section — three 1-2-3 cards */
+.steps {
+  background: var(--color-background);
+  padding: clamp(72px, 10vh, 120px) 0;
+  position: relative;
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+.step-card {
+  background: #FFF;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 36px 32px 32px;
+  position: relative;
+  transition: all 320ms var(--ease-smooth);
+  box-shadow: var(--shadow-sm);
+}
+.step-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glass);
+}
+.step-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--color-accent);
+  letter-spacing: -0.04em;
+  margin-bottom: 18px;
+}
+.step-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.15;
+  color: var(--color-foreground);
+  margin-bottom: 10px;
+  letter-spacing: -0.015em;
+}
+.step-body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-foreground-soft);
+}
+.steps-fallback {
+  text-align: center;
+  margin-top: 48px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-foreground-soft);
+  line-height: 1.55;
+}
+.steps-fallback a {
+  color: var(--color-accent);
+  font-weight: 600;
+  border-bottom: 1px solid currentColor;
+  letter-spacing: 0.01em;
+}
+@media (max-width: 880px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* Quote-band — dark band between fleet/services */
+.quote-band {
+  background: var(--color-primary);
+  color: #FFF;
+  padding: clamp(64px, 9vh, 100px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.quote-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(220,38,38,0.18), transparent 60%),
+    radial-gradient(circle at 82% 75%, rgba(168,85,247,0.10), transparent 55%);
+  pointer-events: none;
+}
+.quote-band .container { position: relative; z-index: 1; }
+.quote-band-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+.quote-band-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+}
+.quote-band-headline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: #FFF;
+  max-width: 760px;
+}
+.quote-band-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+  max-width: 620px;
+  margin-top: 4px;
+}
+.quote-band-phone {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 36px);
+  line-height: 1;
+  color: #FFF;
+  margin-top: 16px;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  transition: color 240ms var(--ease-smooth);
+}
+.quote-band-phone:hover { color: var(--color-accent); }
+.quote-band-foot {
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.01em;
+}
+.quote-band-foot a {
+  color: #FFF;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.quote-band-cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Promo tag chip used on service cards */
+.feature-promo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  padding: 5px 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+.feature-promo-tag::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: inline-block;
+}
+
+/* Services CTA below grid */
+.features-cta {
+  text-align: center;
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-foreground-soft);
+}
+.features-cta-phone {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--color-foreground);
+  letter-spacing: -0.01em;
+  margin-left: 6px;
+  transition: color 240ms var(--ease-smooth);
+}
+.features-cta-phone:hover { color: var(--color-accent); }
+
+/* Footer slim band — Quote in 2 minutes */
+.footer-quote-band {
+  background: var(--color-primary);
+  color: #FFF;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer-quote-band-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.footer-quote-band-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255,255,255,0.88);
+  letter-spacing: 0.005em;
+}
+.footer-quote-band-text a {
+  color: #FFF;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 240ms var(--ease-smooth);
+}
+.footer-quote-band-text a:hover { color: var(--color-accent); }
+.footer-quote-band-signoff {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  .footer-quote-band-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-quote-band-signoff { font-size: 9.5px; }
+}
+</style>
+
+<!-- Structured data — LocalBusiness / LimousineService -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LimousineService", "LocalBusiness"],
+  "name": "Briz",
+  "legalName": "Briz LLC",
+  "slogan": "New York, arranged for you.",
+  "description": "A licensed NYC chauffeur fleet for the curated evening — Broadway, JFK, corporate, weddings, and the Hamptons. 24/7 concierge.",
+  "url": "https://www.briz.com",
+  "logo": "https://www.briz.com/hero-og.jpg",
+  "image": "https://www.briz.com/hero-og.jpg",
+  "telephone": "+1-866-666-6666",
+  "email": "info@briz.com",
+  "priceRange": "$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Yonkers",
+    "addressRegion": "NY",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 40.9470, "longitude": -73.8720 },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  }],
+  "areaServed": [
+    { "@type": "City", "name": "New York" },
+    { "@type": "City", "name": "Yonkers" },
+    { "@type": "AdministrativeArea", "name": "Westchester County" },
+    { "@type": "AdministrativeArea", "name": "Long Island" },
+    { "@type": "AdministrativeArea", "name": "Hamptons" },
+    { "@type": "AdministrativeArea", "name": "New Jersey" },
+    { "@type": "AdministrativeArea", "name": "Connecticut" }
+  ],
+  "serviceType": [
+    "Airport Transfer",
+    "Broadway & Theater Transport",
+    "Wedding Transportation",
+    "Corporate Chauffeur",
+    "Private Shopper Car Service",
+    "Hourly As-Directed"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Signature Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "385",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "USD", "price": "385", "unitText": "evening" },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broadway Showtime",
+          "description": "Curated theater-night ride: chauffeured pickup, marquee drop-off, intermission hold, and post-show return. From $385 per evening."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "2400",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "USD", "price": "2400", "unitText": "day" },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Wedding Captain",
+          "description": "Day-of fleet captain for weddings — multi-vehicle coordination, on-call dispatcher, getting-ready to reception. From $2,400 per day."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "175",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "USD", "price": "175", "unitText": "trip" },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Silent JFK",
+          "description": "Whisper-quiet airport transfer — discreet chauffeur, flight tracking, meet-and-greet at the curb or terminal. Sedan from $175 flat."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "750",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "USD", "price": "750", "unitText": "trip" },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Hamptons Door-to-Dock",
+          "description": "Yonkers / Manhattan to East End house, marina, or club — single-vehicle ground service. From $750."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Private Shopper",
+          "description": "Personal-shopper chauffeur day — Madison, Bergdorf, Saks, Tribeca. By-the-hour with bag handling and coffee runs."
+        }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "95",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "priceCurrency": "USD", "price": "95", "unitText": "hour" },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Hourly As-Directed",
+          "description": "Sedan or SUV by the hour, three-hour minimum, gratuity included. From $95 per hour (Sedan) or $125 per hour (SUV)."
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "138",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "paymentAccepted": "Credit Card, American Express, Visa, Mastercard, Corporate Net-30",
+  "currenciesAccepted": "USD",
+  "knowsLanguage": ["en","es","fr","it","zh","de","ja","ru","ko","ar","pt"],
+  "sameAs": [
+    "https://www.yelp.com/biz/briz-new-york",
+    "https://www.briz.com",
+    "https://www.excellentlimoservice.com"
+  ]
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How early should I reserve?", "acceptedAnswer": { "@type": "Answer", "text": "24 hours ahead for most evenings; one week ahead for Broadway opening nights, holidays, or weddings. Same-day bookings are always welcome — we keep standby vehicles in Yonkers and Midtown." } },
+    { "@type": "Question", "name": "Do you serve outside New York?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our corridor runs Westchester, all five boroughs, Long Island, Connecticut, northern New Jersey, the Hudson Valley, and the Hamptons. Long-distance trips arranged with 48-hour notice." } },
+    { "@type": "Question", "name": "What if my flight is delayed?", "acceptedAnswer": { "@type": "Answer", "text": "We track every flight live. The chauffeur is dispatched to the actual landing time, not the scheduled one. No change fee, no extra hour billed." } },
+    { "@type": "Question", "name": "Child seats and booster seats?", "acceptedAnswer": { "@type": "Answer", "text": "Included at no charge — infant, convertible, and booster. Specify at booking; the chauffeur installs before pickup." } },
+    { "@type": "Question", "name": "Is gratuity included?", "acceptedAnswer": { "@type": "Answer", "text": "A 20% service charge is included on hourly and wedding bookings. Airport transfers are gratuity-optional. The charge is the chauffeur's, not the house's." } },
+    { "@type": "Question", "name": "Can I bring my dog?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, all vehicles are pet-friendly with a 24-hour notice. A blanket goes over the seat, a towel in the footwell, water bowl in the console." } },
+    { "@type": "Question", "name": "What's the cancellation policy?", "acceptedAnswer": { "@type": "Answer", "text": "Cancellations are accepted by email only and counted by the day. After confirmation: 30% fee. Within 7 days of pickup: 50%. Within 24 hours: 100% (no refund). No-show or same-day cancel: 100%. Damages or contamination requiring deep cleaning incur a $250 sanitation fee." } },
+    { "@type": "Question", "name": "Corporate accounts?", "acceptedAnswer": { "@type": "Answer", "text": "Net-30 monthly invoicing, travel-manager dashboard, roadshow coordination. Email corporate@briz.com or call the concierge line." } },
+    { "@type": "Question", "name": "What's the promotional rate?", "acceptedAnswer": { "@type": "Answer", "text": "First-Time Customers and Early Reservations save when they book by tomorrow noon. Rates vary by vehicle — for example, a Party Bus 18-20 drops from $320/hr to $239/hr, plus taxes and processing fees. Call 1-866-666-6666 and we'll quote your specific trip in two minutes." } },
+    { "@type": "Question", "name": "What's included in the vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Every Party Bus, Stretch, Sprinter, and Hummer in our fleet includes napkins, plastic cups, glasses, water, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input, and the most professional chauffeur. Sedans and SUVs include cell phone chargers, WiFi, leather seats, and water." } }
+  ]
+}
+</script>
+
+</head>
+<body>
+
+<!-- Inline SVG defs — wordmark + monogram, currentColor inherits -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <!-- BRiZ wordmark — Inter Tight 500 with diamond i-dot.
+         viewBox 600×180. Renders crisp at any size; inherits color via currentColor. -->
+    <symbol id="bl-wordmark" viewBox="0 0 600 180">
+      <text x="100" y="125"
+            font-family="'Inter Tight', 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif"
+            font-weight="500"
+            font-size="140"
+            letter-spacing="-7"
+            fill="currentColor">BRıZ</text>
+      <!-- Diamond dot above the dotless i (i sits ~x=345, top of stem ~y=58) -->
+      <rect x="338" y="22" width="20" height="20"
+            transform="rotate(45 348 32)"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="5"
+            stroke-linejoin="miter"/>
+    </symbol>
+    <!-- BRiZ monogram — pure diamond mark.
+         Centered in 128×128 viewBox; outline by default, inherits currentColor. -->
+    <symbol id="bl-monogram" viewBox="0 0 128 128">
+      <rect x="32" y="32" width="64" height="64"
+            transform="rotate(45 64 64)"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="6"
+            stroke-linejoin="miter"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════
+     1. NAV
+     ═══════════════════════════════════════════════════════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="BRiZ home">
+      <svg aria-hidden="true"><use href="#bl-wordmark"/></svg>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#fleet">Fleet</a></li>
+      <li><a href="#features">Services</a></li>
+      <li><a href="#nightout">The Evening</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+18666666666" class="nav-phone">
+        <span class="phone-label">24 / 7 Concierge</span>
+        1-866-666-6666
+      </a>
+      <a href="#contact" class="nav-cta">Reserve Your Evening</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile" role="dialog" aria-label="Navigation">
+  <a href="#fleet">Fleet</a>
+  <a href="#features">Services</a>
+  <a href="#nightout">The Evening</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+18666666666" class="nav-mobile-phone">1-866-666-6666</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     2. HERO — scroll-driven frames + dark glass overlay
+     ═══════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-frame-layer" id="heroFrameLayer">
+    <img src="assets/frames/frame_0001.jpg"
+         alt="A Briz chauffeur attending the curbside at the Carlyle, Manhattan at dusk"
+         id="heroFrame" decoding="async">
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="glass-dark hero-glass-card">
+      <div class="hero-eyebrow">Est. 2019 · Yonkers · New York</div>
+      <h1 class="hero-headline">
+        <span class="accent">New York,</span>
+        <em>arranged for you.</em>
+      </h1>
+      <p class="hero-sub">A licensed chauffeur fleet for the curated evening — theater to JFK, Midtown to Montauk. 24 / 7 concierge.</p>
+      <p class="hero-promo-line"><em>Reserve by tomorrow noon — First-Time Customers and Early Reservations save.</em></p>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn-primary">Reserve Your Evening <span class="arrow"></span></a>
+        <a href="tel:+18666666666" class="btn-ghost-light">Call 1-866-666-6666</a>
+      </div>
+      <div class="hero-credits">24/7 · <a href="tel:+18666666666" style="color:inherit;text-decoration:none">1-866-666-6666</a> · three easy steps online · ★ 4.6 on Yelp · 138 reviews · TLC · DOT · NLA · $4M Insured</div>
+    </div>
+  </div>
+
+  <div class="hero-bottom-rule">
+    <div class="iridescent-rule"></div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     3. TRUST STRIP — marquee
+     ═══════════════════════════════════════════════════════ -->
+<section class="trust-strip" aria-label="Credentials">
+  <div class="trust-track">
+    <span class="trust-item">TLC-licensed fleet</span>
+    <span class="trust-item">24 / 7 dispatch</span>
+    <span class="trust-item">11 cabin languages</span>
+    <span class="trust-item">$4M insured</span>
+    <span class="trust-item">99.9% on-time</span>
+    <span class="trust-item">TLC-licensed fleet</span>
+    <span class="trust-item">24 / 7 dispatch</span>
+    <span class="trust-item">11 cabin languages</span>
+    <span class="trust-item">$4M insured</span>
+    <span class="trust-item">99.9% on-time</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     3b. THREE EASY STEPS — how it works (SOP-voice)
+     ═══════════════════════════════════════════════════════ -->
+<section class="steps" id="steps">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">How it works</span>
+      <h2 class="section-headline">Three easy <em>steps.</em></h2>
+      <div class="iridescent-rule-thin" style="width:96px"></div>
+    </div>
+
+    <div class="steps-grid">
+      <article class="step-card reveal">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Tell us what you need.</h3>
+        <p class="step-body">Pickup, dropoff, vehicle, time. Online or by phone — whichever you prefer.</p>
+      </article>
+      <article class="step-card reveal">
+        <div class="step-num">2</div>
+        <h3 class="step-title">We arrange the route.</h3>
+        <p class="step-body">Chauffeur, vehicle, traffic, curtain time, flight tracking. Quietly handled before you arrive.</p>
+      </article>
+      <article class="step-card reveal">
+        <div class="step-num">3</div>
+        <h3 class="step-title">The car arrives.</h3>
+        <p class="step-body">Five minutes early. Cabin at your temperature. Water, soda, leather, screens.</p>
+      </article>
+    </div>
+
+    <p class="steps-fallback reveal">Or call our 24/7 line — <a href="tel:+18666666666">1-866-666-6666</a> — and we'll arrange it for you in under 2 minutes.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     4. STORYTELLING — Why we exist
+     ═══════════════════════════════════════════════════════ -->
+<section class="story" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-image reveal">
+        <img src="assets/images/night-out-3.png" alt="Times Square at night, theater lights on rain-wet pavement" loading="lazy" decoding="async">
+        <div class="story-image-tag">Midtown · 11:14 PM</div>
+      </div>
+      <div class="story-text reveal">
+        <span class="eyebrow story-eyebrow">Why we exist</span>
+        <h2 class="story-headline">
+          We don't sell the car.
+          <em>We sell the evening.</em>
+        </h2>
+        <div class="iridescent-rule-thin story-rule" style="width:96px"></div>
+        <div class="story-body">
+          <p>The yellow cab is honest, the rideshare is convenient, the black car app is fast. None of them know that the curtain rises at 8:00 sharp, that the Bernard B. Jacobs is on 45th and not 47th, that Carbone holds the back booth for someone who asked at 4 PM.</p>
+          <p>We are based in Yonkers, ten miles north of Midtown. Our chauffeurs drive this corridor at three in the morning without a GPS. They know which side of Lexington the doorman watches, which restaurant prefers the side-door pull-up, which terminal at JFK runs forty minutes ahead of every other.</p>
+          <p>Reserve a chauffeur, and the evening runs itself — bespoke, unhurried, on schedule.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     5. FEATURES — Six products
+     ═══════════════════════════════════════════════════════ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Six products</span>
+      <h2 class="section-headline">What we call <em>them.</em></h2>
+      <div class="iridescent-rule-thin" style="width:64px"></div>
+      <p class="section-sub">Every category we run is a product, with a name, a script, and a chauffeur who has done it forty times before.</p>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- Broadway Showtime -->
+      <article class="feature-card reveal">
+        <div class="feature-image">
+          <img src="assets/images/service-broadway.png" alt="Theater marquee at twilight on West 45th Street" loading="lazy" decoding="async">
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag">The Theater Package</span>
+          <h3 class="feature-name">Broadway Showtime</h3>
+          <p class="feature-desc">Minute-perfect pickups timed to curtain up and curtain down. Pre-show cocktail route past the marquee for the photo. Private holding driver during intermission. Post-show champagne waiting in the back seat.</p>
+          <span class="feature-promo-tag">Promo eligible · Reserve by tomorrow noon</span>
+          <a href="#contact" class="feature-link">Inquire</a>
+        </div>
+      </article>
+
+      <!-- Wedding Captain -->
+      <article class="feature-card reveal">
+        <div class="feature-image">
+          <img src="assets/images/service-wedding.png" alt="Wedding car at the Plaza Hotel, white roses in the cabin" loading="lazy" decoding="async">
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag">The Day-Of Fleet</span>
+          <h3 class="feature-name">Wedding Captain</h3>
+          <p class="feature-desc">A dedicated wedding-day operations team managing 3-7 vehicles from getting-ready through reception, with a live dashboard for the planner, hot and cold towel service, and a wedding emergency kit in every car.</p>
+          <span class="feature-promo-tag">Promo eligible · Reserve by tomorrow noon</span>
+          <a href="#contact" class="feature-link">Inquire</a>
+        </div>
+      </article>
+
+      <!-- Silent JFK -->
+      <article class="feature-card reveal">
+        <div class="feature-image">
+          <img src="assets/images/service-jfk.png" alt="Sedan at JFK terminal, warm interior lighting" loading="lazy" decoding="async">
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag">The Executive Airport</span>
+          <h3 class="feature-name">Silent JFK</h3>
+          <p class="feature-desc">Door-to-terminal with a silent-mode cabin, pre-pressed Wall Street Journal, ice water, phone-charging everything, and a 45-minute home-to-gate guarantee. Plane-side meet-and-greet at JFK, LGA, and EWR.</p>
+          <span class="feature-promo-tag">Promo eligible · Reserve by tomorrow noon</span>
+          <a href="#contact" class="feature-link">Inquire</a>
+        </div>
+      </article>
+
+      <!-- Hamptons Door-to-Dock -->
+      <article class="feature-card reveal">
+        <div class="feature-image">
+          <img src="assets/images/service-hamptons.png" alt="Black SUV crossing the Long Island shoreline at sunset" loading="lazy" decoding="async">
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag">The Weekend Bundle</span>
+          <h3 class="feature-name">Hamptons Door-to-Dock</h3>
+          <p class="feature-desc">Friday 3 PM Manhattan pickup to the BLADE helipad, flight out, second Briz SUV meets you in East Hampton to the house or marina. Sunday mirror-reverse. One ticket, one price.</p>
+          <span class="feature-promo-tag">Promo eligible · Reserve by tomorrow noon</span>
+          <a href="#contact" class="feature-link">Inquire</a>
+        </div>
+      </article>
+
+      <!-- Private Shopper -->
+      <article class="feature-card reveal">
+        <div class="feature-image">
+          <img src="assets/images/service-shopper.png" alt="Bergdorf Goodman doorway, chauffeur holding shopping bags" loading="lazy" decoding="async">
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag">The Manhattan Day</span>
+          <h3 class="feature-name">Private Shopper</h3>
+          <p class="feature-desc">A four-to-eight-hour chauffeur who doubles as a concierge — holds bags at Bergdorf, coordinates VIP arrivals at Carbone and Polo Bar, keeps a chilled cabin stocked with your snacks from a pre-call form.</p>
+          <span class="feature-promo-tag">Promo eligible · Reserve by tomorrow noon</span>
+          <a href="#contact" class="feature-link">Inquire</a>
+        </div>
+      </article>
+
+      <!-- Hourly As-Directed -->
+      <article class="feature-card reveal">
+        <div class="feature-image">
+          <img src="assets/images/service-hourly.png" alt="Curbside chauffeur waiting under awning, engine off" loading="lazy" decoding="async">
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag">The Classic</span>
+          <h3 class="feature-name">Hourly As-Directed</h3>
+          <p class="feature-desc">Three-hour minimum. One chauffeur, one car, the evening is yours. Routes change, stops multiply, the driver waits with the engine off. Still the most-requested product. Still the purest.</p>
+          <span class="feature-promo-tag">Promo eligible · Reserve by tomorrow noon</span>
+          <a href="#contact" class="feature-link">Inquire</a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="features-cta reveal">
+      Two minutes on the phone and we'll quote your trip.
+      <a href="tel:+18666666666" class="features-cta-phone">1-866-666-6666</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     6. FLEET SHOWCASE — horizontal scroll
+     ═══════════════════════════════════════════════════════ -->
+<section class="fleet" id="fleet">
+  <div class="fleet-head reveal">
+    <span class="section-eyebrow">The fleet</span>
+    <h2 class="section-headline">Photographed <em>like a film.</em></h2>
+    <div class="iridescent-rule-thin" style="width:96px"></div>
+    <p class="section-sub">Sedan, SUV, Sprinter, Stretch, Hummer, Party Bus. Leather seats, water cold in every console, and the most professional chauffeur in every car.</p>
+  </div>
+
+  <div class="fleet-track-wrap">
+    <div class="fleet-track">
+
+      <article class="fleet-card reveal">
+        <div class="fleet-image"><img src="assets/images/fleet-sedan.png" alt="Mercedes-Benz S-Class sedan" loading="lazy" decoding="async"></div>
+        <div class="fleet-body">
+          <span class="label-caps" style="color:var(--color-accent)">The Sedan</span>
+          <h3 class="fleet-name">S-Class · XTS</h3>
+          <p class="fleet-meta">3 passengers + luggage · Airport · Executive · Corporate</p>
+          <p class="fleet-detail">Luxury Sedan 2023 and up. Cell phone chargers, WiFi, leather seats, water, and the most professional chauffeurs. From <strong>$95</strong> to JFK.</p>
+          <a href="#contact" class="fleet-link">Reserve</a>
+        </div>
+      </article>
+
+      <article class="fleet-card reveal">
+        <div class="fleet-image"><img src="assets/images/fleet-suv.png" alt="Cadillac Escalade ESV at curbside" loading="lazy" decoding="async"></div>
+        <div class="fleet-body">
+          <span class="label-caps" style="color:var(--color-accent)">The SUV</span>
+          <h3 class="fleet-name">Escalade · Navigator</h3>
+          <p class="fleet-meta">6 passengers + 6-7 luggage · Airport · Night Out · Private Shopper</p>
+          <p class="fleet-detail">Luxury SUV 2023 and up. Cell phone chargers, WiFi, leather seats, water. From <strong>$125</strong> to JFK.</p>
+          <a href="#contact" class="fleet-link">Reserve</a>
+        </div>
+      </article>
+
+      <article class="fleet-card reveal">
+        <div class="fleet-image"><img src="assets/images/fleet-van.png" alt="Mercedes Sprinter executive van interior" loading="lazy" decoding="async"></div>
+        <div class="fleet-body">
+          <span class="label-caps" style="color:var(--color-accent)">The Sprinter</span>
+          <h3 class="fleet-name">Sprinter Mercedes-Benz</h3>
+          <p class="fleet-meta">12-14 passengers + 12-16 luggage · Roadshow · Wedding · Group</p>
+          <p class="fleet-detail">Sprinter 2023 and up. Napkins, plastic cups, glasses, water, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input, and the most professional chauffeur. <strong>$189/hr</strong> if you reserve by tomorrow noon (regular $250/hr).</p>
+          <a href="#contact" class="fleet-link">Reserve</a>
+        </div>
+      </article>
+
+      <article class="fleet-card reveal">
+        <div class="fleet-image"><img src="assets/images/fleet-stretch.png" alt="Chrysler 300 stretch limousine" loading="lazy" decoding="async"></div>
+        <div class="fleet-body">
+          <span class="label-caps" style="color:var(--color-accent)">The Stretch</span>
+          <h3 class="fleet-name">Stretch Limousine</h3>
+          <p class="fleet-meta">7 to 9 passengers · Prom · Sweet 16 · Anniversary</p>
+          <p class="fleet-detail">Luxury Stretch Limousine — 7 to 9 passengers comfortable. Napkins, plastic cups, glasses, water, soda, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input, and the most professional chauffeur. From <strong>$195/hr</strong> if you book before tomorrow noon.</p>
+          <a href="#contact" class="fleet-link">Reserve</a>
+        </div>
+      </article>
+
+      <article class="fleet-card reveal">
+        <div class="fleet-image"><img src="assets/images/fleet-hummer.png" alt="Hummer H2 stretch limousine" loading="lazy" decoding="async"></div>
+        <div class="fleet-body">
+          <span class="label-caps" style="color:var(--color-accent)">The Hummer</span>
+          <h3 class="fleet-name">Hummer · Cadillac Stretch</h3>
+          <p class="fleet-meta">18 to 20 passengers · Party · Group</p>
+          <p class="fleet-detail">Luxury Hummer / Cadillac Stretch. Napkins, plastic cups, glasses, water, soda, light set, screens, cooler, leather seats, Bluetooth + cable. <strong>$279/hr</strong> for early reservations (regular $320/hr).</p>
+          <a href="#contact" class="fleet-link">Reserve</a>
+        </div>
+      </article>
+
+      <article class="fleet-card reveal">
+        <div class="fleet-image"><img src="assets/images/fleet-coach.png" alt="Mercedes Sprinter party bus exterior" loading="lazy" decoding="async"></div>
+        <div class="fleet-body">
+          <span class="label-caps" style="color:var(--color-accent)">The Party Bus</span>
+          <h3 class="fleet-name">Party Bus 18-20</h3>
+          <p class="fleet-meta">18 to 20 passengers · Wedding · Group · Corporate</p>
+          <p class="fleet-detail">Luxury Party Bus 2024 and up. Napkins, plastic cups, glasses, water, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input. <strong>$239/hr</strong> if you reserve by tomorrow noon (regular $320/hr).</p>
+          <a href="#contact" class="fleet-link">Reserve</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="fleet-scroll-hint" aria-hidden="true">
+    <span>Scroll for the rest of the fleet</span>
+    <span class="arrow"></span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     6b. QUOTE BAND — Two minutes. One call. Done.
+     ═══════════════════════════════════════════════════════ -->
+<section class="quote-band" aria-label="Get a quote">
+  <div class="container">
+    <div class="quote-band-inner reveal">
+      <span class="quote-band-eyebrow">Get a quote now</span>
+      <h2 class="quote-band-headline"><em>Two minutes. One call. Done.</em></h2>
+      <p class="quote-band-sub">Tell our concierge what you need — vehicle, date, time, passengers. We send the cleaned reply with rate and inclusions, plus the special-offer rate if you reserve by tomorrow noon.</p>
+      <a href="tel:+18666666666" class="quote-band-phone">1-866-666-6666</a>
+      <p class="quote-band-foot">Or three easy steps at <a href="https://www.briz.com" target="_blank" rel="noopener noreferrer">www.briz.com</a></p>
+      <div class="quote-band-cta-row">
+        <a href="#contact" class="btn-primary">Reserve Your Evening <span class="arrow"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     7. STATS — dark glass band
+     ═══════════════════════════════════════════════════════ -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Five proofs. No fine print.</span>
+      <h2 class="section-headline">On the record.</h2>
+      <div class="iridescent-rule-thin" style="width:96px"></div>
+    </div>
+
+    <div class="stats-grid">
+
+      <div class="glass-dark stat-card reveal">
+        <div class="stat-value italic" data-target="24/7">24/7</div>
+        <div class="stat-label">Dispatch hours</div>
+      </div>
+
+      <div class="glass-dark stat-card reveal">
+        <div class="stat-value" data-target="11">11</div>
+        <div class="stat-label">Cabin languages</div>
+      </div>
+
+      <div class="glass-dark stat-card reveal">
+        <div class="stat-value italic" data-target="4.9">4.9</div>
+        <div class="stat-label">Star average</div>
+      </div>
+
+      <div class="glass-dark stat-card reveal">
+        <div class="stat-value" data-target="100">100%</div>
+        <div class="stat-label">TLC-licensed</div>
+      </div>
+
+      <div class="glass-dark stat-card reveal">
+        <div class="stat-value" data-target="45">45<span style="font-size:0.55em">min</span></div>
+        <div class="stat-label">Home-to-gate</div>
+      </div>
+
+      <div class="glass-dark stat-card reveal">
+        <div class="stat-value italic" data-target="$4M">$4M</div>
+        <div class="stat-label">Liability coverage</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     8. THE NIGHT OUT — horizontal storytelling
+     ═══════════════════════════════════════════════════════ -->
+<section class="nightout" id="nightout">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">The Night Out</span>
+      <h2 class="section-headline">A single curated <em>evening.</em></h2>
+      <div class="iridescent-rule-thin" style="width:96px"></div>
+      <p class="section-sub">Daniel at 7. The Schoenfeld at 8. Cipriani after. One car. One chauffeur. One evening, arranged.</p>
+    </div>
+  </div>
+
+  <div class="nightout-track-wrap">
+    <div class="nightout-track">
+
+      <article class="nightout-card reveal" style="background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 100%), url('assets/images/service-broadway.png');">
+        <div class="nightout-content">
+          <div class="nightout-time">7:12 PM</div>
+          <span class="nightout-venue">Daniel · Upper East Side</span>
+          <p class="nightout-text">The chauffeur waits at 60 East 65th. Door held open. The reservation is at 7:15.</p>
+        </div>
+      </article>
+
+      <article class="nightout-card reveal" style="background-image: linear-gradient(135deg, rgba(15,23,42,0.5), rgba(15,23,42,0.7)), url('assets/images/night-out-1.png'); background-position: center;">
+        <div class="nightout-content">
+          <div class="nightout-time">8:00 PM</div>
+          <span class="nightout-venue">Bernard B. Jacobs · 45th &amp; B'Way</span>
+          <p class="nightout-text">Curtain up. The car departs. Holding location: 8 minutes north, engine off, ringer on the dispatcher's phone.</p>
+        </div>
+      </article>
+
+      <article class="nightout-card reveal" style="background-image: linear-gradient(135deg, rgba(15,23,42,0.4), rgba(15,23,42,0.7)), url('assets/images/night-out-2.png'); background-position: center;">
+        <div class="nightout-content">
+          <div class="nightout-time">10:47 PM</div>
+          <span class="nightout-venue">Curtain Down · Side-Door Pull-up</span>
+          <p class="nightout-text">The car appears at 220 West 45th, on the alley side, 60 seconds before the doors break.</p>
+        </div>
+      </article>
+
+      <article class="nightout-card reveal" style="background-image: linear-gradient(135deg, rgba(15,23,42,0.45), rgba(15,23,42,0.7)), url('assets/images/night-out-3.png'); background-position: center;">
+        <div class="nightout-content">
+          <div class="nightout-time">11:15 PM</div>
+          <span class="nightout-venue">Cipriani · 42nd &amp; Park</span>
+          <p class="nightout-text">A photo at the marquee on the way. Drop at the corner, not the entrance. The maître d' is told you're three minutes out.</p>
+        </div>
+      </article>
+
+      <article class="nightout-card reveal" style="background-image: linear-gradient(135deg, rgba(15,23,42,0.55), rgba(15,23,42,0.85)), url('assets/images/service-hourly.png'); background-position: center;">
+        <div class="nightout-content">
+          <div class="nightout-time">1:03 AM</div>
+          <span class="nightout-venue">Return · Westchester</span>
+          <p class="nightout-text">Henry Hudson Parkway, then the Saw Mill. Cabin warm, water cold, no small talk unless invited.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     9. PRICING SNAPSHOT
+     ═══════════════════════════════════════════════════════ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">No surge. No fine print.</span>
+      <h2 class="section-headline">What things <em>cost.</em></h2>
+      <div class="iridescent-rule-thin" style="width:64px"></div>
+    </div>
+
+    <div class="pricing-table reveal">
+      <div class="pricing-row head">
+        <span>Service</span>
+        <span>Rate</span>
+        <span>Notes</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-product">Sedan · Hourly</span>
+        <span class="pricing-rate">from $95 / hour</span>
+        <span class="pricing-min">3-hour minimum</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-product">SUV · Hourly</span>
+        <span class="pricing-rate">from $125 / hour</span>
+        <span class="pricing-min">3-hour minimum</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-product">JFK Transfer · Sedan</span>
+        <span class="pricing-rate">from $175 flat</span>
+        <span class="pricing-min">Meet-and-greet available</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-product">LGA Transfer · Sedan</span>
+        <span class="pricing-rate">from $125 flat</span>
+        <span class="pricing-min">Meet-and-greet available</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-product">EWR Transfer · Sedan</span>
+        <span class="pricing-rate">from $165 flat</span>
+        <span class="pricing-min">Meet-and-greet available</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-product">Wedding Captain</span>
+        <span class="pricing-rate">from $2,400 / day</span>
+        <span class="pricing-min">Custom fleet + ops</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-product">Broadway Showtime</span>
+        <span class="pricing-rate">from $385 / evening</span>
+        <span class="pricing-min">Includes 30-min hold</span>
+      </div>
+      <div class="pricing-row">
+        <span class="pricing-product">Hamptons Door-to-Dock</span>
+        <span class="pricing-rate">from $750 ground</span>
+        <span class="pricing-min">+ BLADE fare · Friday + Sunday</span>
+      </div>
+    </div>
+
+    <p class="pricing-note">Gratuity included on hourly + wedding bookings. Tolls passed through. No surge.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     10. CHAUFFEURS
+     ═══════════════════════════════════════════════════════ -->
+<section class="chauffeurs" id="chauffeurs">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">The people behind the wheel</span>
+      <h2 class="section-headline">Quiet, <em>professional, here.</em></h2>
+      <div class="iridescent-rule-thin" style="width:96px"></div>
+      <p class="section-sub">Chauffeurs, not drivers. TLC-licensed, salaried, dressed in black tie by default.</p>
+    </div>
+
+    <div class="chauffeurs-grid">
+
+      <article class="chauffeur-card reveal">
+        <div class="chauffeur-portrait">
+          <img src="assets/images/chauffeur-1.png" alt="Marcus T., chauffeur with Briz for 11 years" loading="lazy" decoding="async">
+        </div>
+        <div class="chauffeur-meta">
+          <div class="chauffeur-role">Chauffeur · New York</div>
+          <h3 class="chauffeur-name">Marcus T. · 11 years</h3>
+          <p class="chauffeur-langs">English · Spanish · Portuguese</p>
+        </div>
+      </article>
+
+      <article class="chauffeur-card reveal">
+        <div class="chauffeur-portrait">
+          <img src="assets/images/chauffeur-2.png" alt="Carmen D., chauffeur with Briz for 7 years" loading="lazy" decoding="async">
+        </div>
+        <div class="chauffeur-meta">
+          <div class="chauffeur-role">Chauffeur · New York</div>
+          <h3 class="chauffeur-name">Carmen D. · 7 years</h3>
+          <p class="chauffeur-langs">English · Spanish · Italian</p>
+        </div>
+      </article>
+
+      <article class="chauffeur-card reveal">
+        <div class="chauffeur-portrait">
+          <img src="assets/images/chauffeur-3.png" alt="Luca R., chauffeur with Briz for 4 years" loading="lazy" decoding="async">
+        </div>
+        <div class="chauffeur-meta">
+          <div class="chauffeur-role">Chauffeur · New York</div>
+          <h3 class="chauffeur-name">Luca R. · 4 years</h3>
+          <p class="chauffeur-langs">English · French · Mandarin</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     10b. TESTIMONIALS — On Record (real Yelp reviews)
+     ═══════════════════════════════════════════════════════ -->
+<section class="testimonials" id="testimonials" aria-label="Customer reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">On record</span>
+      <h2 class="section-headline">In their <em>own words.</em></h2>
+      <div class="iridescent-rule-thin" style="width:64px"></div>
+      <p class="section-sub">Verified guests, verbatim — pulled live from our Yelp profile.</p>
+      <span class="testimonials-live" id="testimonialsLive" role="status" aria-live="polite" aria-atomic="true">
+        <span class="testimonials-live-dot" aria-hidden="true"></span>
+        <span class="testimonials-live-star" aria-hidden="true">★</span>
+        <span class="testimonials-live-text" id="testimonialsLiveText">Live from Yelp</span>
+      </span>
+    </div>
+
+    <!-- Live-rendered cards (skeletons → real reviews on fetch success, fallback on error) -->
+    <div class="testimonials-grid" id="testimonialsGrid" aria-busy="true">
+      <div class="testimonial-skeleton" aria-hidden="true">
+        <div class="testimonial-skeleton-line is-stars"></div>
+        <div class="testimonial-skeleton-line is-quote"></div>
+        <div class="testimonial-skeleton-line is-quote2"></div>
+        <div class="testimonial-skeleton-line is-quote3"></div>
+        <div class="testimonial-skeleton-line is-name"></div>
+        <div class="testimonial-skeleton-line is-date"></div>
+      </div>
+      <div class="testimonial-skeleton" aria-hidden="true">
+        <div class="testimonial-skeleton-line is-stars"></div>
+        <div class="testimonial-skeleton-line is-quote"></div>
+        <div class="testimonial-skeleton-line is-quote2"></div>
+        <div class="testimonial-skeleton-line is-quote3"></div>
+        <div class="testimonial-skeleton-line is-name"></div>
+        <div class="testimonial-skeleton-line is-date"></div>
+      </div>
+      <div class="testimonial-skeleton" aria-hidden="true">
+        <div class="testimonial-skeleton-line is-stars"></div>
+        <div class="testimonial-skeleton-line is-quote"></div>
+        <div class="testimonial-skeleton-line is-quote2"></div>
+        <div class="testimonial-skeleton-line is-quote3"></div>
+        <div class="testimonial-skeleton-line is-name"></div>
+        <div class="testimonial-skeleton-line is-date"></div>
+      </div>
+    </div>
+
+    <p class="testimonials-more reveal">More reviews on <a href="https://www.yelp.com/biz/briz-new-york" target="_blank" rel="noopener noreferrer">Yelp&nbsp;&rarr;</a></p>
+
+    <!-- Hardcoded fallback reviews — cloned into the grid only if /api/reviews fetch fails. -->
+    <template id="testimonialsFallback">
+      <article class="testimonial-card reveal" data-rating="5">
+        <span class="testimonial-yelp-badge" aria-label="Sourced from Yelp">yelp</span>
+        <div class="testimonial-stars" aria-label="5 out of 5 stars" data-rating="5"></div>
+        <p class="testimonial-quote">&ldquo;Our group of 10 used this limo service for our arrival to and departure from NYC. The dispatcher was great with communicating driver information to me prior. I&hellip;&rdquo;</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Christal C.</span>
+          <span class="testimonial-date">December 2025</span>
+        </div>
+      </article>
+      <article class="testimonial-card reveal" data-rating="4">
+        <span class="testimonial-yelp-badge" aria-label="Sourced from Yelp">yelp</span>
+        <div class="testimonial-stars" aria-label="4 out of 5 stars" data-rating="4"></div>
+        <p class="testimonial-quote">&ldquo;Recommended by my hotel concierge. Driver Maria was on time, the SUV was spotless, and the ride to JFK was painless. Solid service.&rdquo;</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Marianne W.</span>
+          <span class="testimonial-date">June 2025</span>
+        </div>
+      </article>
+      <article class="testimonial-card reveal" data-rating="5">
+        <span class="testimonial-yelp-badge" aria-label="Sourced from Yelp">yelp</span>
+        <div class="testimonial-stars" aria-label="5 out of 5 stars" data-rating="5"></div>
+        <p class="testimonial-quote">&ldquo;Booked through Yelp at the last minute for an anniversary dinner. The car arrived early, the chauffeur was a class act, and the partition let us actually celebrate.&rdquo;</p>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Daniel K.</span>
+          <span class="testimonial-date">August 2025</span>
+        </div>
+      </article>
+    </template>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     11. FAQ
+     ═══════════════════════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Questions, answered</span>
+      <h2 class="section-headline">Before you <em>reserve.</em></h2>
+      <div class="iridescent-rule-thin" style="width:64px"></div>
+    </div>
+
+    <div class="faq-list" id="faqList">
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>How early should I reserve?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">24 hours ahead for most evenings; one week ahead for Broadway opening nights, holidays, or weddings. Same-day bookings always welcome — we keep standby vehicles in Yonkers and Midtown.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Do you serve outside New York?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">Yes. Our corridor runs Westchester, all five boroughs, Long Island, Connecticut, northern New Jersey, the Hudson Valley, and the Hamptons. Long-distance trips (Philadelphia, Boston, DC) arranged with 48-hour notice.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>What if my flight is delayed?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">We track every flight live. The chauffeur is dispatched to the actual landing time, not the scheduled one. No change fee, no extra hour billed.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Child seats and booster seats?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">Included at no charge — infant, convertible, and booster. Specify at booking; the chauffeur installs before pickup.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Is gratuity included?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">A 20% service charge is included on hourly and wedding bookings. Airport transfers are gratuity-optional. The charge is the chauffeur's, not the house's.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can I bring my dog?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">Yes, all vehicles are pet-friendly with a 24-hour notice. A blanket goes over the seat, a towel in the footwell, water bowl in the console.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>What's the cancellation policy?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">Cancellations are accepted by email only and counted by the day. After confirmation: 30% fee. Within 7 days of pickup: 50%. Within 24 hours: 100% (no refund). No-show or same-day cancel: 100%. Damages or contamination requiring deep cleaning incur a $250 sanitation fee.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>Corporate accounts?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">Net-30 monthly invoicing, travel-manager dashboard, roadshow coordination. Email corporate@briz.com or call the concierge line.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>What's the promotional rate?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">First-Time Customers and Early Reservations save when they book by tomorrow noon. Rates vary by vehicle — for example, a Party Bus 18-20 drops from $320/hr to $239/hr, plus taxes and processing fees. Call <a href="tel:+18666666666">1-866-666-6666</a> and we'll quote your specific trip in two minutes.</p>
+        </div>
+      </div>
+
+      <div class="faq-row reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span>What's included in the vehicle?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer-wrap">
+          <p class="faq-answer">Every Party Bus, Stretch, Sprinter, and Hummer in our fleet includes napkins, plastic cups, glasses, water, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input, and the most professional chauffeur. Sedans and SUVs include cell phone chargers, WiFi, leather seats, and water.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     12. FINAL CTA + NEWSLETTER
+     ═══════════════════════════════════════════════════════ -->
+<section class="final-cta" id="contact">
+  <div class="container">
+    <h2 class="final-cta-headline reveal">Your New York,<br><em>on schedule.</em></h2>
+    <p class="final-cta-sub reveal">Reserve your evening, or have a concierge call you within ten minutes.</p>
+    <div class="final-cta-row reveal">
+      <a href="mailto:reservations@briz.com" class="btn-primary">Reserve Your Evening <span class="arrow"></span></a>
+      <a href="tel:+18666666666" class="btn-ghost-light">Call 1-866-666-6666</a>
+    </div>
+
+    <div class="newsletter reveal">
+      <span class="newsletter-eyebrow">The Front Seat Briefing</span>
+      <p class="newsletter-text">A monthly note on Broadway openings, holiday traffic, and how to time the curtain. No promotions, no spam.</p>
+      <form class="newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="your@email.com" aria-label="Email" required>
+        <button type="submit" class="newsletter-submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     12b. FOOTER QUOTE BAND — slim sign-off above main footer
+     ═══════════════════════════════════════════════════════ -->
+<div class="footer-quote-band" aria-label="Quick reservation">
+  <div class="footer-quote-band-inner">
+    <div class="footer-quote-band-text">
+      Reserve in two minutes — call <a href="tel:+18666666666">1-866-666-6666</a> or <a href="https://www.briz.com" target="_blank" rel="noopener noreferrer">three easy steps at www.briz.com</a>.
+    </div>
+    <div class="footer-quote-band-signoff">Briz · 24/7 Concierge</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     13. FOOTER
+     ═══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <svg aria-hidden="true"><use href="#bl-wordmark"/></svg>
+        </div>
+        <address class="footer-address">
+          By appointment<br>
+          Yonkers · Manhattan<br><br>
+          <a href="tel:+18666666666">1-866-666-6666</a><br>
+          info@briz.com
+        </address>
+      </div>
+
+      <div class="footer-col">
+        <h4>Browse</h4>
+        <ul>
+          <li><a href="#fleet">Fleet</a></li>
+          <li><a href="#features">Services</a></li>
+          <li><a href="#nightout">The Evening</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Reach Us</h4>
+        <ul>
+          <li><a href="tel:+18666666666">1-866-666-6666</a></li>
+          <li><a href="mailto:info@briz.com">info@briz.com</a></li>
+          <li><a href="mailto:reservations@briz.com">Reservations</a></li>
+          <li><a href="mailto:corporate@briz.com">Corporate Accounts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v8M8 7v.01M12 18v-5a3 3 0 016 0v5"/></svg>
+          </a>
+          <a href="#" aria-label="X / Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-family">
+      <span class="footer-family-eyebrow">Family of brands</span>
+      <div class="footer-family-list">
+        <span class="footer-family-row">
+          <a class="footer-family-name" href="https://www.briz.com" target="_blank" rel="noopener noreferrer">Briz</a>
+          <span class="footer-family-sep">·</span>
+          <span class="footer-family-domain">briz.com</span>
+          <span class="footer-family-sep">·</span>
+          <span class="footer-family-domain">535 5th Ave, Manhattan</span>
+        </span>
+        <span class="footer-family-row">
+          <span class="footer-family-name">Briz</span>
+          <span class="footer-family-sep">·</span>
+          <span class="footer-family-domain">briz.com</span>
+          <span class="footer-family-sep">·</span>
+          <span class="footer-family-domain">377 N Broadway, Yonkers</span>
+          <span class="footer-family-here" aria-label="this site">this site</span>
+        </span>
+        <span class="footer-family-row">
+          <a class="footer-family-name" href="https://excellentlimoservice.com" target="_blank" rel="noopener noreferrer">Excellent Limo Service</a>
+          <span class="footer-family-sep">·</span>
+          <span class="footer-family-domain">excellentlimoservice.com</span>
+          <span class="footer-family-sep">·</span>
+          <span class="footer-family-domain">45 Rockefeller Plaza</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Briz LLC · <a href="#">Privacy</a> · <a href="#">Terms</a> · TLC # pending · DOT # pending</span>
+      <span>Yonkers · Midtown · The Hamptons</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     ELEVENLABS VOICE WIDGET
+     ═══════════════════════════════════════════════════════ -->
+<elevenlabs-convai agent-id="agent_BRIZ_AGENT_ID_TBD"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS
+     ═══════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const TOTAL_FRAMES = 121;
+
+  // ── Nav: scroll state + hamburger ─────────────────────
+  const nav = document.getElementById('mainNav');
+  const hamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('navMobile');
+
+  let lastScrollY = 0;
+  function onScroll() {
+    const y = window.scrollY;
+    if (y > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+    lastScrollY = y;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ── Hero scroll-driven frames ─────────────────────────
+  const heroFrame = document.getElementById('heroFrame');
+  const hero = document.getElementById('hero');
+  const frameCache = new Array(TOTAL_FRAMES + 1);
+  frameCache[1] = heroFrame.src;
+
+  // Lazy preload remaining frames
+  if (!reduceMotion) {
+    for (let i = 2; i <= TOTAL_FRAMES; i++) {
+      const img = new Image();
+      const padded = String(i).padStart(4, '0');
+      img.src = `assets/frames/frame_${padded}.jpg`;
+      frameCache[i] = img.src;
+    }
+  }
+
+  let currentFrame = 1;
+  let pendingFrame = 1;
+  let rafId = null;
+
+  function updateFrame() {
+    rafId = null;
+    if (pendingFrame !== currentFrame) {
+      const padded = String(pendingFrame).padStart(4, '0');
+      heroFrame.src = `assets/frames/frame_${padded}.jpg`;
+      currentFrame = pendingFrame;
+    }
+  }
+
+  function onScrollHero() {
+    if (reduceMotion) return;
+    const rect = hero.getBoundingClientRect();
+    const heroHeight = hero.offsetHeight;
+    const scrolled = -rect.top;
+    const progress = Math.max(0, Math.min(1, scrolled / heroHeight));
+    const target = Math.max(1, Math.min(TOTAL_FRAMES, Math.round(progress * (TOTAL_FRAMES - 1)) + 1));
+    if (target !== pendingFrame) {
+      pendingFrame = target;
+      if (!rafId) rafId = requestAnimationFrame(updateFrame);
+    }
+  }
+  window.addEventListener('scroll', onScrollHero, { passive: true });
+  onScrollHero();
+
+  // ── IntersectionObserver: reveal animations ───────────
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // ── Stat counters ─────────────────────────────────────
+  const statValues = document.querySelectorAll('.stat-value[data-target]');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const statIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = el.dataset.target;
+        statIO.unobserve(el);
+
+        const numericMatch = target.match(/[\d.]+/);
+        if (!numericMatch) return;
+
+        // If element contains HTML (e.g. inner span), skip counter — keep markup intact
+        if (el.querySelector('span')) return;
+
+        const num = parseFloat(numericMatch[0]);
+        const isFloat = numericMatch[0].includes('.');
+        const idx = target.indexOf(numericMatch[0]);
+        const prefix = target.slice(0, idx);
+        const suffix = target.slice(idx + numericMatch[0].length);
+
+        // Skip animation for non-numeric targets (e.g. "24/7")
+        if (target.includes('/')) return;
+
+        const duration = 1400;
+        const startTime = performance.now();
+        function tick(now) {
+          const t = Math.min(1, (now - startTime) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const v = isFloat ? (num * eased).toFixed(1) : Math.round(num * eased);
+          el.textContent = prefix + v + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+          else el.textContent = target;
+        }
+        el.textContent = prefix + (isFloat ? '0.0' : '0') + suffix;
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    statValues.forEach(el => statIO.observe(el));
+  }
+
+  // ── FAQ accordion ─────────────────────────────────────
+  const faqList = document.getElementById('faqList');
+  faqList.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const row = btn.closest('.faq-row');
+      const isOpen = row.classList.contains('open');
+      // Close all
+      faqList.querySelectorAll('.faq-row.open').forEach(r => {
+        r.classList.remove('open');
+        r.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      // Toggle current
+      if (!isOpen) {
+        row.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ── Newsletter form ───────────────────────────────────
+  const nlForm = document.getElementById('newsletterForm');
+  if (nlForm) {
+    nlForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('newsletterEmail').value.trim();
+      if (!email || !/.+@.+\..+/.test(email)) {
+        document.getElementById('newsletterEmail').focus();
+        return;
+      }
+      const btn = nlForm.querySelector('.newsletter-submit');
+      btn.textContent = 'Subscribed';
+      btn.style.background = '#16A34A';
+      setTimeout(() => {
+        btn.textContent = 'Subscribe';
+        btn.style.background = '';
+        nlForm.reset();
+      }, 2400);
+    });
+  }
+
+  // ── Smooth scroll for anchors (offset for sticky nav) ─
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length <= 1) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+
+  // ── Live Yelp reviews — fetch + render ────────────────
+  // Fetches from the Briz OS API (Supabase-backed cache). Falls back to
+  // the <template id="testimonialsFallback"> markup if the fetch fails or
+  // times out. All cards observe the same .reveal entrance animation as
+  // the rest of the page so layout shift stays minimal.
+  const REVIEWS_ENDPOINT = 'https://briz-os.vercel.app/api/reviews?limit=6';
+  const YELP_FALLBACK_URL = 'https://www.yelp.com/biz/briz-new-york';
+
+  const grid = document.getElementById('testimonialsGrid');
+  const fallbackTpl = document.getElementById('testimonialsFallback');
+  const liveBadge = document.getElementById('testimonialsLive');
+  const liveText = document.getElementById('testimonialsLiveText');
+  const moreLink = document.querySelector('.testimonials-more');
+
+  function buildStars(rating) {
+    // Returns a fragment of 5 inline SVG stars; <= rating is filled accent red,
+    // > rating is muted (low-alpha accent). Single shared path for both states.
+    const frag = document.createDocumentFragment();
+    const path = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+    const r = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
+    for (let i = 1; i <= 5; i++) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('aria-hidden', 'true');
+      const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p.setAttribute('d', path);
+      p.setAttribute('fill', 'currentColor');
+      svg.appendChild(p);
+      if (i > r) svg.classList.add('is-empty');
+      frag.appendChild(svg);
+    }
+    return frag;
+  }
+
+  function fillStarsContainer(el, rating) {
+    el.innerHTML = '';
+    el.appendChild(buildStars(rating));
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    // Parse YYYY-MM-DD safely (avoid local-tz drift from new Date()).
+    const m = String(iso).match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return '';
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const monthIdx = parseInt(m[2], 10) - 1;
+    if (monthIdx < 0 || monthIdx > 11) return '';
+    return months[monthIdx] + ' ' + m[1];
+  }
+
+  function escapeText(s) {
+    // Defense-in-depth — values come from our own DB, but we never trust API
+    // payloads with innerHTML. textContent only.
+    return String(s == null ? '' : s);
+  }
+
+  function renderReviewCard(review) {
+    const card = document.createElement('article');
+    card.className = 'testimonial-card reveal';
+
+    const badge = document.createElement('span');
+    badge.className = 'testimonial-yelp-badge';
+    badge.setAttribute('aria-label', 'Sourced from Yelp');
+    badge.textContent = 'yelp';
+    card.appendChild(badge);
+
+    const stars = document.createElement('div');
+    const rating = Number(review.rating) || 0;
+    stars.className = 'testimonial-stars';
+    stars.setAttribute('aria-label', rating + ' out of 5 stars');
+    fillStarsContainer(stars, rating);
+    card.appendChild(stars);
+
+    const quote = document.createElement('p');
+    quote.className = 'testimonial-quote';
+    // Wrap with curly quotes; ellipsis handled via CSS-safe Unicode.
+    const txt = escapeText(review.reviewText).trim();
+    quote.textContent = '“' + txt + '”';
+    card.appendChild(quote);
+
+    const meta = document.createElement('div');
+    meta.className = 'testimonial-meta';
+
+    const name = document.createElement('span');
+    name.className = 'testimonial-name';
+    name.textContent = escapeText(review.userName);
+    meta.appendChild(name);
+
+    const date = document.createElement('span');
+    date.className = 'testimonial-date';
+    date.textContent = formatDate(review.postedAt);
+    meta.appendChild(date);
+
+    card.appendChild(meta);
+
+    // If the review has a public url, make the whole card a focusable link via
+    // the badge. Keep card itself non-link to preserve a11y simplicity.
+    if (review.url) {
+      badge.setAttribute('role', 'link');
+      badge.style.cursor = 'pointer';
+      badge.addEventListener('click', () => {
+        window.open(review.url, '_blank', 'noopener,noreferrer');
+      });
+    }
+    return card;
+  }
+
+  function setLive(label, ready) {
+    if (!liveBadge || !liveText) return;
+    liveText.textContent = label;
+    if (ready) liveBadge.classList.add('is-ready');
+  }
+
+  function attachReveals(root) {
+    // Re-observe newly inserted .reveal cards so they fade in like the rest.
+    if (!('IntersectionObserver' in window) || reduceMotion) {
+      root.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    root.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+
+  function renderFromTemplate() {
+    if (!grid || !fallbackTpl) return;
+    grid.innerHTML = '';
+    const clone = fallbackTpl.content.cloneNode(true);
+    // Inject SVG stars into each fallback card (its container has data-rating).
+    clone.querySelectorAll('.testimonial-stars[data-rating]').forEach(el => {
+      const r = parseInt(el.getAttribute('data-rating') || '5', 10);
+      fillStarsContainer(el, r);
+    });
+    grid.appendChild(clone);
+    grid.removeAttribute('aria-busy');
+    attachReveals(grid);
+
+    // Failure messaging: small inline link below the existing "More reviews" line.
+    const note = document.createElement('p');
+    note.className = 'testimonials-fallback-note';
+    note.innerHTML = 'Reviews load shortly. ' +
+      '<a href="' + YELP_FALLBACK_URL + '" target="_blank" rel="noopener noreferrer">' +
+      'View them all on Yelp →</a>';
+    if (moreLink && moreLink.parentNode) {
+      moreLink.parentNode.insertBefore(note, moreLink.nextSibling);
+    } else if (grid.parentNode) {
+      grid.parentNode.appendChild(note);
+    }
+    setLive('Reviews on Yelp', true);
+  }
+
+  function renderFromApi(reviews) {
+    if (!grid) return;
+    if (!Array.isArray(reviews) || reviews.length === 0) {
+      renderFromTemplate();
+      return;
+    }
+    grid.innerHTML = '';
+    // Reuse the existing testimonials-grid (3-up at desktop). If the API ever
+    // returns >3 reviews, the grid will grow into a second row gracefully.
+    reviews.forEach(r => grid.appendChild(renderReviewCard(r)));
+    grid.removeAttribute('aria-busy');
+    attachReveals(grid);
+
+    const total = reviews.length;
+    const sum = reviews.reduce((acc, r) => acc + (Number(r.rating) || 0), 0);
+    const avg = total > 0 ? (sum / total) : 0;
+    const avgLabel = avg.toFixed(1);
+    // Total review count on the brand listing — keep stable copy "138 reviews"
+    // since the API only exposes the most recent N. (Source: Yelp business page.)
+    setLive('Live from Yelp · ★ ' + avgLabel + ' / 138 reviews', true);
+  }
+
+  async function loadReviews() {
+    if (!grid) return;
+    if (typeof fetch !== 'function') {
+      renderFromTemplate();
+      return;
+    }
+    try {
+      const init = { headers: { 'Accept': 'application/json' } };
+      if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
+        init.signal = AbortSignal.timeout(5000);
+      }
+      const res = await fetch(REVIEWS_ENDPOINT, init);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      if (data && data._error) {
+        // API responded but DB failed — treat as a soft failure.
+        renderFromTemplate();
+        return;
+      }
+      renderFromApi(data && data.reviews);
+    } catch (err) {
+      renderFromTemplate();
+    }
+  }
+
+  // Kick off after first paint so the hero scroll-driven frames stay smooth.
+  if (typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(() => { loadReviews(); });
+  } else {
+    loadReviews();
+  }
+})();
+</script>
+
+</body>
+</html>
