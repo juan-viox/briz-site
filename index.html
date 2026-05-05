@@ -3196,88 +3196,124 @@ elevenlabs-convai {
 <section class="fleet" id="fleet">
   <div class="fleet-head reveal">
     <span class="section-eyebrow">The fleet</span>
-    <h2 class="section-headline">Photographed <em>like a film.</em></h2>
+    <h2 class="section-headline">Six rooms <em>on wheels.</em></h2>
     <div class="iridescent-rule-thin" style="width:96px"></div>
-    <p class="section-sub">Sedan, SUV, Sprinter, Stretch, Hummer, Party Bus. Leather seats, water cold in every console, and the most professional chauffeur in every car.</p>
+    <p class="section-sub">Sedan to sprinter to accessible. Live capacity, live availability, real chauffeurs — the BRiZ catalog is wired to our dispatch backend, so what you see is what you can book right now.</p>
   </div>
 
   <div class="fleet-track-wrap">
-    <div class="fleet-track">
+    <div class="fleet-track" id="fleet-track" data-state="loading">
+      <!-- Cards are rendered by the script below from /api/carmel/catalog.
+           The static cards below are a no-JS fallback. -->
 
-      <article class="fleet-card reveal">
+      <article class="fleet-card reveal" data-fallback>
         <div class="fleet-image"><img src="assets/images/fleet-sedan.png" alt="Mercedes-Benz S-Class sedan" loading="lazy" decoding="async"></div>
         <div class="fleet-body">
-          <span class="label-caps" style="color:var(--color-accent)">The Sedan</span>
-          <h3 class="fleet-name">S-Class · XTS</h3>
-          <p class="fleet-meta">3 passengers + luggage · Airport · Executive · Corporate</p>
-          <p class="fleet-detail">Luxury Sedan 2023 and up. Cell phone chargers, WiFi, leather seats, water, and the most professional chauffeurs. From <strong>$95</strong> to JFK.</p>
+          <span class="label-caps" style="color:var(--color-accent)">Sedan</span>
+          <h3 class="fleet-name">Full Size Sedan</h3>
+          <p class="fleet-meta">3 passengers · 3 bags · Airport · Executive · Corporate</p>
+          <p class="fleet-detail">The everyday standard. Late-model black sedan with WiFi, chargers, water, and a chauffeur whose only job is to make the next ninety minutes feel like nothing.</p>
           <a href="#contact" class="fleet-link">Reserve</a>
         </div>
       </article>
 
-      <article class="fleet-card reveal">
-        <div class="fleet-image"><img src="assets/images/fleet-suv.png" alt="Cadillac Escalade ESV at curbside" loading="lazy" decoding="async"></div>
+      <article class="fleet-card reveal" data-fallback>
+        <div class="fleet-image"><img src="assets/images/fleet-suv.png" alt="Cadillac Escalade ESV" loading="lazy" decoding="async"></div>
         <div class="fleet-body">
-          <span class="label-caps" style="color:var(--color-accent)">The SUV</span>
-          <h3 class="fleet-name">Escalade · Navigator</h3>
-          <p class="fleet-meta">6 passengers + 6-7 luggage · Airport · Night Out · Private Shopper</p>
-          <p class="fleet-detail">Luxury SUV 2023 and up. Cell phone chargers, WiFi, leather seats, water. From <strong>$125</strong> to JFK.</p>
+          <span class="label-caps" style="color:var(--color-accent)">Premium SUV</span>
+          <h3 class="fleet-name">SUV</h3>
+          <p class="fleet-meta">6 passengers · 6 bags · Airport · Family · Group</p>
+          <p class="fleet-detail">Six adults, six bags, three rows. The right car for a family JFK run or a group dinner uptown.</p>
           <a href="#contact" class="fleet-link">Reserve</a>
         </div>
       </article>
 
-      <article class="fleet-card reveal">
-        <div class="fleet-image"><img src="assets/images/fleet-van.png" alt="Mercedes Sprinter executive van interior" loading="lazy" decoding="async"></div>
+      <article class="fleet-card reveal" data-fallback>
+        <div class="fleet-image"><img src="assets/images/fleet-van.png" alt="Mercedes Sprinter executive van" loading="lazy" decoding="async"></div>
         <div class="fleet-body">
-          <span class="label-caps" style="color:var(--color-accent)">The Sprinter</span>
-          <h3 class="fleet-name">Sprinter Mercedes-Benz</h3>
-          <p class="fleet-meta">12-14 passengers + 12-16 luggage · Roadshow · Wedding · Group</p>
-          <p class="fleet-detail">Sprinter 2023 and up. Napkins, plastic cups, glasses, water, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input, and the most professional chauffeur. <strong>$189/hr</strong> if you reserve by tomorrow noon (regular $250/hr).</p>
+          <span class="label-caps" style="color:var(--color-accent)">Sprinter</span>
+          <h3 class="fleet-name">Mini Van</h3>
+          <p class="fleet-meta">6 passengers · 4 bags · Roadshow · Wedding · Group</p>
+          <p class="fleet-detail">Six passengers in private-room comfort. Roadshow groups, wedding parties, ski-trip families — the room scales.</p>
           <a href="#contact" class="fleet-link">Reserve</a>
         </div>
       </article>
-
-      <article class="fleet-card reveal">
-        <div class="fleet-image"><img src="assets/images/fleet-stretch.png" alt="Chrysler 300 stretch limousine" loading="lazy" decoding="async"></div>
-        <div class="fleet-body">
-          <span class="label-caps" style="color:var(--color-accent)">The Stretch</span>
-          <h3 class="fleet-name">Stretch Limousine</h3>
-          <p class="fleet-meta">7 to 9 passengers · Prom · Sweet 16 · Anniversary</p>
-          <p class="fleet-detail">Luxury Stretch Limousine — 7 to 9 passengers comfortable. Napkins, plastic cups, glasses, water, soda, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input, and the most professional chauffeur. From <strong>$195/hr</strong> if you book before tomorrow noon.</p>
-          <a href="#contact" class="fleet-link">Reserve</a>
-        </div>
-      </article>
-
-      <article class="fleet-card reveal">
-        <div class="fleet-image"><img src="assets/images/fleet-hummer.png" alt="Hummer H2 stretch limousine" loading="lazy" decoding="async"></div>
-        <div class="fleet-body">
-          <span class="label-caps" style="color:var(--color-accent)">The Hummer</span>
-          <h3 class="fleet-name">Hummer · Cadillac Stretch</h3>
-          <p class="fleet-meta">18 to 20 passengers · Party · Group</p>
-          <p class="fleet-detail">Luxury Hummer / Cadillac Stretch. Napkins, plastic cups, glasses, water, soda, light set, screens, cooler, leather seats, Bluetooth + cable. <strong>$279/hr</strong> for early reservations (regular $320/hr).</p>
-          <a href="#contact" class="fleet-link">Reserve</a>
-        </div>
-      </article>
-
-      <article class="fleet-card reveal">
-        <div class="fleet-image"><img src="assets/images/fleet-coach.png" alt="Mercedes Sprinter party bus exterior" loading="lazy" decoding="async"></div>
-        <div class="fleet-body">
-          <span class="label-caps" style="color:var(--color-accent)">The Party Bus</span>
-          <h3 class="fleet-name">Party Bus 18-20</h3>
-          <p class="fleet-meta">18 to 20 passengers · Wedding · Group · Corporate</p>
-          <p class="fleet-detail">Luxury Party Bus 2024 and up. Napkins, plastic cups, glasses, water, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input. <strong>$239/hr</strong> if you reserve by tomorrow noon (regular $320/hr).</p>
-          <a href="#contact" class="fleet-link">Reserve</a>
-        </div>
-      </article>
-
     </div>
   </div>
 
   <div class="fleet-scroll-hint" aria-hidden="true">
-    <span>Scroll for the rest of the fleet</span>
+    <span>Scroll for the full fleet</span>
     <span class="arrow"></span>
   </div>
 </section>
+
+<!-- ───────────── Live catalog hydration: reads from briz-os ─────────────
+     Replaces the static fallback cards above with the live Carmel-backed
+     catalog. Endpoint is CORS-enabled. Failures leave the fallback in place. -->
+<script>
+(function () {
+  var ENDPOINT = "https://briz-os.vercel.app/api/carmel/catalog";
+  var track = document.getElementById("fleet-track");
+  if (!track) return;
+
+  var imgFor = {
+    SD: "assets/images/fleet-sedan.png",
+    LX: "assets/images/fleet-sedan.png",
+    DX: "assets/images/fleet-sedan.png",
+    SV: "assets/images/fleet-suv.png",
+    VN: "assets/images/fleet-van.png",
+    WV: "assets/images/fleet-suv.png"
+  };
+  var blurbFor = {
+    SD: "The everyday standard. Late-model black sedan with WiFi, chargers, water, and a chauffeur whose only job is to make the next ninety minutes feel like nothing.",
+    LX: "Late-model luxury sedan for executive runs and discreet evenings — the seat back is leather, the playlist is yours.",
+    DX: "Top-of-class luxury sedan. The most polished room on the road. Reserved for the moments that matter.",
+    SV: "Six adults, six bags, three rows. The right car for a family JFK run or a group dinner uptown.",
+    VN: "Six passengers in private-room comfort. Roadshow groups, wedding parties, ski-trip families — the room scales.",
+    WV: "ADA-compliant vehicle with ramp/lift. Always available on request — no awkward calls, no waiting."
+  };
+
+  fetch(ENDPOINT, { mode: "cors" })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (data) {
+      if (!data || !data.ok || !Array.isArray(data.classes) || data.classes.length === 0) return;
+
+      var html = data.classes.map(function (c) {
+        var img = imgFor[c.id] || c.pictureUrl || "assets/images/fleet-sedan.png";
+        var blurb = blurbFor[c.id] || (c.description || "");
+        var bagsLabel = c.maxLuggage > 0 ? c.maxLuggage + " bag" + (c.maxLuggage === 1 ? "" : "s") : "Carry-on";
+        var paxLabel = c.maxPassengers + " passenger" + (c.maxPassengers === 1 ? "" : "s");
+        return [
+          '<article class="fleet-card reveal">',
+            '<div class="fleet-image"><img src="' + img + '" alt="' + c.name + ' photographed for BRiZ" loading="lazy" decoding="async"></div>',
+            '<div class="fleet-body">',
+              '<span class="label-caps" style="color:var(--color-accent)">', c.name, '</span>',
+              '<h3 class="fleet-name">', c.name, '</h3>',
+              '<p class="fleet-meta">', paxLabel, ' · ', bagsLabel,
+                  (c.maxWheelchairs ? ' · ADA accessible' : ''), '</p>',
+              '<p class="fleet-detail">', blurb, '</p>',
+              '<a href="#contact" class="fleet-link" data-class="' + c.id + '">Reserve</a>',
+            '</div>',
+          '</article>'
+        ].join("");
+      }).join("");
+
+      track.innerHTML = html;
+      track.setAttribute("data-state", "live");
+
+      // Re-arm the IntersectionObserver for the freshly inserted .reveal cards
+      if (window.__brizReveal && typeof window.__brizReveal.observe === "function") {
+        track.querySelectorAll(".reveal").forEach(function (el) {
+          window.__brizReveal.observe(el);
+        });
+      }
+    })
+    .catch(function () {
+      // Silent: fallback cards remain visible
+      track.setAttribute("data-state", "fallback");
+    });
+})();
+</script>
 
 <!-- ═══════════════════════════════════════════════════════
      6b. QUOTE BAND — Two minutes. One call. Done.
