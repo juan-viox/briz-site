@@ -3156,7 +3156,7 @@ button.btn-ghost-light {
 </script>
 
 </head>
-<body class="briz-mobile-app-on">
+<body>
 
 <!-- Inline SVG defs — wordmark + monogram, currentColor inherits -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -4546,7 +4546,18 @@ window.brizTalk = function (carmelClassId /*, routeLabel */) {
   </div>
 </div>
 
-<!-- ElevenLabs widget removed — booking flow is the reservation form modal. -->
+<!-- ═══════════════════════════════════════════════════════
+     ELEVENLABS VOICE WIDGET — published embed, untouched
+     -----------------------------------------------------------
+     Element + script verbatim from elevenlabs.io. We deliberately
+     do NOT add any CSS targeting this element — the widget script
+     positions and styles itself. Any positioning rule we'd add here
+     creates a 0×0 container the bubble can't render inside.
+     The reservation form modal stays as the deterministic booking
+     path; the widget is the optional voice path.
+     ═══════════════════════════════════════════════════════ -->
+<elevenlabs-convai agent-id="agent_7901kqtr8v01f8mssvt9vg7nxyzr"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 
 <script>
