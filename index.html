@@ -2376,45 +2376,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   border-radius: 6px;
 }
 
-/* ElevenLabs widget — let the widget self-position. We only ensure it sits
-   on top of everything else; positioning is the widget script's job. Forcing
-   our own fixed position broke the bubble's internal layout (it would render
-   inside a 0×0 container). */
-elevenlabs-convai { z-index: 9999; }
-
-/* Pulse animation when brizTalk() can't programmatically open — draws the eye. */
-.briz-widget-pulse {
-  animation: brizWidgetPulse 1s ease-in-out 4;
-}
-@keyframes brizWidgetPulse {
-  0%, 100% { transform: scale(1);    filter: brightness(1); }
-  50%      { transform: scale(1.08); filter: brightness(1.2) drop-shadow(0 0 12px rgba(201,183,154,0.6)); }
-}
-
-/* Toast pointing at the widget bubble */
-.briz-widget-toast {
-  position: fixed; right: 96px; bottom: 32px; z-index: 10000;
-  background: #0E1116; color: #F2EDE4;
-  border: 1px solid var(--color-accent, #C9B79A);
-  padding: 14px 20px; border-radius: 12px;
-  font-size: 14px; line-height: 1.4; max-width: 280px;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.55);
-  opacity: 0; transform: translateX(20px);
-  transition: opacity 280ms ease, transform 320ms cubic-bezier(0.4,0,0.2,1);
-  pointer-events: none;
-}
-.briz-widget-toast::after {
-  content: ""; position: absolute; right: -8px; bottom: 18px;
-  width: 0; height: 0;
-  border-left: 8px solid var(--color-accent, #C9B79A);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-}
-.briz-widget-toast-visible { opacity: 1; transform: translateX(0); }
-@media (max-width: 720px) {
-  .briz-widget-toast { right: 16px; bottom: 110px; max-width: calc(100vw - 32px); }
-  .briz-widget-toast::after { display: none; }
-}
+/* ElevenLabs widget removed — every CTA opens the reservation form modal. */
 
 /* ═══════════════════════════════════════════════════════════
    v3 — SOP-voice additions (appended at end so existing styles stay intact)
@@ -3036,8 +2998,7 @@ button.btn-ghost-light {
   .briz-form-row, .briz-form-row-3 { grid-template-columns: 1fr; gap: 12px; }
   .briz-form-actions { flex-direction: column-reverse; }
   .briz-form-cancel, .briz-form-submit { width: 100%; }
-  /* The mobile-app bar competes with the widget — hide it now that the
-     widget is the canonical mobile entry point. */
+  /* Mobile-app bottom bar disabled — the form opens directly from any CTA. */
   .briz-mobile-app { display: none !important; }
   body { padding-bottom: 0; }
 }
@@ -3188,7 +3149,7 @@ button.btn-ghost-light {
     { "@type": "Question", "name": "Can I bring my dog?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, all vehicles are pet-friendly with a 24-hour notice. A blanket goes over the seat, a towel in the footwell, water bowl in the console." } },
     { "@type": "Question", "name": "What's the cancellation policy?", "acceptedAnswer": { "@type": "Answer", "text": "Cancellations are accepted by email only and counted by the day. After confirmation: 30% fee. Within 7 days of pickup: 50%. Within 24 hours: 100% (no refund). No-show or same-day cancel: 100%. Damages or contamination requiring deep cleaning incur a $250 sanitation fee." } },
     { "@type": "Question", "name": "Corporate accounts?", "acceptedAnswer": { "@type": "Answer", "text": "Net-30 monthly invoicing, travel-manager dashboard, roadshow coordination. Email corporate@briz.com or call the concierge line." } },
-    { "@type": "Question", "name": "How do I get a quote?", "acceptedAnswer": { "@type": "Answer", "text": "Talk to BRiZ — our 24/7 AI concierge. The widget bottom-right of the page connects you in one click, voice or text. You'll get a firm rate (Carmel-backed pricing, all-in including airport and congestion fees) in under a minute, and you can book it in the same conversation." } },
+    { "@type": "Question", "name": "How do I get a quote?", "acceptedAnswer": { "@type": "Answer", "text": "Tap any 'Reserve Your Evening' button on this page to open the reservation form. Pickup, drop-off, time, vehicle — and we'll show the firm Carmel-backed rate (all-in: airport fees and congestion charge included; tolls and tip extra). Confirmation arrives by text in seconds." } },
     { "@type": "Question", "name": "What's included in the vehicle?", "acceptedAnswer": { "@type": "Answer", "text": "Every Party Bus, Stretch, Sprinter, and Hummer in our fleet includes napkins, plastic cups, glasses, water, an amazing light set, screens, a cooler, leather seats, Bluetooth and cable music input, and the most professional chauffeur. Sedans and SUVs include cell phone chargers, WiFi, leather seats, and water." } }
   ]
 }
@@ -3352,7 +3313,7 @@ button.btn-ghost-light {
       </article>
     </div>
 
-    <p class="steps-fallback reveal">Or <button type="button" class="link-inline" onclick="brizTalk()">talk to BRiZ</button> — our AI concierge handles the whole booking, voice or text, in under two minutes.</p>
+    <p class="steps-fallback reveal">Or <button type="button" class="link-inline" onclick="brizBook()">open the reservation form</button> — pickup, drop-off, time, vehicle, name. Confirmation by text in under two minutes.</p>
   </div>
 </section>
 
@@ -3762,58 +3723,26 @@ button.btn-ghost-light {
   });
 })();
 
-// ── Voice agent activation ───────────────────────────────────────
-// brizTalk(carmelClassId?, routeLabel?) — gets the user to the
-// ElevenLabs widget. The widget is a Web Component with a closed
-// shadow DOM, so we can't programmatically click its trigger reliably
-// across versions. Strategy:
-//   1. Make the widget visible (scroll it into view if needed)
-//   2. Add a brief pulse animation to draw the eye
-//   3. Show a quick toast pointing to it if anything looks off
-//   4. Pass intent via CustomEvent — newer widget versions can subscribe
-window.brizTalk = function (carmelClassId, routeLabel) {
-  var widget = document.querySelector("elevenlabs-convai");
-
-  // First: try direct activation methods (covers future widget versions)
-  if (widget) {
-    try {
-      if (typeof widget.openModal === "function") { widget.openModal(); return; }
-      if (typeof widget.open      === "function") { widget.open();      return; }
-      if (typeof widget.startCall === "function") { widget.startCall(); return; }
-    } catch (_e) { /* fall through */ }
-  }
-
-  // Fallback: surface the bubble with a pulse + toast
-  showBrizWidgetHint();
-
-  // Surface caller intent for any listener
-  if (carmelClassId || routeLabel) {
-    window.dispatchEvent(new CustomEvent("briz-talk-intent", {
-      detail: { carmelClassId: carmelClassId || null, routeLabel: routeLabel || null }
-    }));
+// ── brizTalk() now opens the reservation form modal ──────────────
+// The ElevenLabs widget was unreliable (broken shadow-DOM activation,
+// "Permission denied" errors). The form is the single, deterministic
+// booking entry point. Optional carmelClassId pre-selects the vehicle.
+window.brizTalk = function (carmelClassId /*, routeLabel */) {
+  if (typeof window.brizBook === "function") {
+    window.brizBook();
+    if (carmelClassId) {
+      // Pre-select the vehicle dropdown if it's already populated
+      setTimeout(function () {
+        var sel = document.getElementById("brizVehicleSelect");
+        if (sel) {
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === carmelClassId) { sel.selectedIndex = i; break; }
+          }
+        }
+      }, 200);
+    }
   }
 };
-
-function showBrizWidgetHint() {
-  var widget = document.querySelector("elevenlabs-convai");
-  if (widget) {
-    widget.classList.add("briz-widget-pulse");
-    setTimeout(function () { widget.classList.remove("briz-widget-pulse"); }, 4000);
-  }
-  // Show a toast pointing at the bottom-right of the screen
-  var existing = document.getElementById("brizWidgetToast");
-  if (existing) existing.remove();
-  var toast = document.createElement("div");
-  toast.id = "brizWidgetToast";
-  toast.className = "briz-widget-toast";
-  toast.innerHTML = '<span>Tap the BRiZ bubble at the bottom-right to start talking.</span>';
-  document.body.appendChild(toast);
-  setTimeout(function () { toast.classList.add("briz-widget-toast-visible"); }, 16);
-  setTimeout(function () {
-    toast.classList.remove("briz-widget-toast-visible");
-    setTimeout(function () { toast.remove(); }, 320);
-  }, 4500);
-}
 </script>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -4334,7 +4263,7 @@ function showBrizWidgetHint() {
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer-wrap">
-          <p class="faq-answer">Talk to BRiZ — our AI concierge is plugged into the live Carmel pricing API, so the quote you hear is the firm all-in rate (airport fees, congestion, the lot). Tap the widget bottom-right of this page, voice or text, and you'll have a number in under a minute.</p>
+          <p class="faq-answer">Tap any "Reserve Your Evening" button on this page — the form is plugged into the live Carmel pricing API, so the number you see is the firm all-in rate (airport fees, congestion charge, the lot). Tolls and tip extra. Confirmation by text in seconds.</p>
         </div>
       </div>
 
@@ -4617,11 +4546,8 @@ function showBrizWidgetHint() {
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════
-     ELEVENLABS VOICE WIDGET
-     ═══════════════════════════════════════════════════════ -->
-<elevenlabs-convai agent-id="agent_7901kqtr8v01f8mssvt9vg7nxyzr"></elevenlabs-convai>
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+<!-- ElevenLabs widget removed — booking flow is the reservation form modal. -->
+
 
 <script>
 // =========================================================
